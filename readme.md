@@ -9,3 +9,8 @@ The list of products available on the page is available in the `data/products.js
 License
 -------
 This project is licensed under the terms of GNU Affero General Public License Version 3.
+
+Source repo
+-----------
+- https://github.com/massgravel/msdl
+- https://massgrave.dev/msdl/
