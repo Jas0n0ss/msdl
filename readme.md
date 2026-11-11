@@ -16,10 +16,13 @@ Pages
 | --- | --- |
 | `index.html` | Browse and download Windows, pick a product from the picker, copy a download link |
 | `chocolatey.html` | Install Chocolatey and build a `choco install` command from 150+ packages |
+| `activation.html` | Windows and Office activation methods, screenshotted from massgrave.dev (with attribution) |
 | `404.html` | Self-contained not-found page |
 
-The header links to **Activation** ([massgrave.dev](https://massgrave.dev/)) for people who need
-it; it is an external link, nothing is bundled.
+**Activation** is an index of the guides on [massgrave.dev](https://massgrave.dev/): each method is
+summarised, screenshotted and linked back to the source. The text and screenshots belong to the
+MASSGRAVE contributors; `tools/update-activation.mjs` refreshes them. Office activation (Ohook and
+Online KMS) is covered in its own section.
 
 Products listed
 ---------------

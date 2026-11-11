@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="description"
+        content="Windows and Office activation methods, summarised and screenshotted from massgrave.dev, in one calm index.">
+
+    <meta property="og:site_name" content="MSDL">
+    <meta property="og:title" content="Activation — MSDL">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Windows and Office activation methods from massgrave.dev, categorised.">
+
+    <title>Activation — MSDL</title>
+
+    <script>
+        try {
+            var storedTheme = localStorage.getItem('msdl-theme');
+            document.documentElement.dataset.theme =
+                storedTheme === 'light' || storedTheme === 'dark'
+                    ? storedTheme
+                    : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } catch (error) { }
+    </script>
+
+    <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/activation.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="index.html" aria-label="MSDL — all products">
+                <svg class="brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4"/></svg>
+                <span class="brand-word">MSDL</span>
+            </a>
+
+            <nav class="header-nav" aria-label="Primary">
+                <a class="nav-link" href="index.html">Catalog</a>
+                <a class="nav-link" href="chocolatey.html">Chocolatey</a>
+                <a class="nav-link" href="activation.html" aria-current="page">Activation</a>
+                <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">
+                    <span class="nav-link-text">Source</span>
+                </a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
+                    <svg class="icon theme-icon-light" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+                        <path d="M10 2v1.8M10 16.2V18M18 10h-1.8M3.8 10H2M15.7 4.3l-1.3 1.3M5.6 14.4l-1.3 1.3M15.7 15.7l-1.3-1.3M5.6 5.6 4.3 4.3"
+                            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                    </svg>
+                    <svg class="icon theme-icon-dark" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+                        <path d="M16.2 12.3A6.6 6.6 0 0 1 7.7 3.8a6.6 6.6 0 1 0 8.5 8.5Z" fill="none"
+                            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero shell" aria-labelledby="hero-title">
+            <div class="hero-copy hero-copy-wide">
+                <p class="eyebrow"><span class="eyebrow-index">03</span><span>Activation</span></p>
+                <h1 class="hero-title" id="hero-title">
+                    Activate Windows and Office
+                    <span class="hero-dim">without the guesswork.</span>
+                </h1>
+                <p class="lede">
+                    The methods below are summarised from
+                    <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>,
+                    with a screenshot of each official guide. Read the source page before running anything —
+                    it is maintained upstream, this page is only an index.
+                </p>
+            </div>
+        </section>
+
+        <div class="act shell" id="act-body" aria-busy="true"></div>
+
+        <section class="choco shell">
+            <div class="panel">
+                <h2 class="panel-title">Credit</h2>
+                <p class="panel-note">
+                    Activation guides, instructions and screenshots belong to the
+                    <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>
+                    contributors and the Microsoft Activation Scripts project. MSDL is not affiliated with
+                    Microsoft or with them; the guides are reproduced here as a convenience index.
+                </p>
+                <p class="choco-meta mono" id="act-stamp"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer shell">
+        <div class="footer-top">
+            <div class="footer-brand"><svg class="brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4"/></svg><span class="brand-word">MSDL</span></div>
+            <p class="footer-note">An unofficial index. Activation content is sourced from massgrave.dev.</p>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-stamp mono" id="footer-stamp">data/activation.json</p>
+            <div class="footer-links">
+                <a href="index.html">Catalog</a>
+                <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>
+                <a href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">Source</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
