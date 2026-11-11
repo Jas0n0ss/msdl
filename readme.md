@@ -16,6 +16,7 @@ Pages
 | --- | --- |
 | `index.html` | Browse and download Windows, pick a product from the picker, copy a download link |
 | `chocolatey.html` | Install Chocolatey and build a `choco install` command from 150+ packages |
+| `office.html` | Download and install Office: ODT route, ready-made C2R images, checks |
 | `activation.html` | Step-by-step guide to the MAS one-line command for Windows and Office |
 | `404.html` | Self-contained not-found page |
 

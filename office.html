@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="description" content="How to download and install Office (2016–2024 and Microsoft 365) cleanly: the official ODT route and the ready-made click-to-run installers.">
+<meta property="og:site_name" content="MSDL">
+<meta property="og:title" content="Office download and install — MSDL">
+<meta property="og:type" content="website">
+<title>Office download &amp; install — MSDL</title>
+<script>
+  try { var t = localStorage.getItem('msdl-theme'); document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) { }
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('theme-toggle')?.addEventListener('click', function () {
+      var n = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = n;
+      try { localStorage.setItem('msdl-theme', n); } catch (e) { }
+    });
+    document.querySelectorAll('[data-copy]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var t = b.getAttribute('data-copy'), old = b.textContent;
+        var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = old; }, 1400); };
+        navigator.clipboard ? navigator.clipboard.writeText(t).then(done) : done();
+      });
+    });
+  });
+</script>
+<link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell header-inner">
+  <a class="brand" href="index.html" aria-label="MSDL — all products">
+    <svg class="brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4"/></svg>
+    <span class="brand-word">MSDL</span>
+  </a>
+  <nav class="header-nav" aria-label="Primary">
+    <a class="nav-link" href="index.html">Catalog</a>
+    <a class="nav-link" href="chocolatey.html">Chocolatey</a>
+    <a class="nav-link" href="office.html" aria-current="page">Office</a>
+    <a class="nav-link" href="activation.html">Activation</a>
+    <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener"><span class="nav-link-text">Source</span></a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
+      <svg class="icon theme-icon-light" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2v1.8M10 16.2V18M18 10h-1.8M3.8 10H2M15.7 4.3l-1.3 1.3M5.6 14.4l-1.3 1.3M15.7 15.7l-1.3-1.3M5.6 5.6 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="icon theme-icon-dark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><path d="M16.2 12.3A6.6 6.6 0 0 1 7.7 3.8a6.6 6.6 0 1 0 8.5 8.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
+</div></header>
+
+<main id="main">
+<section class="hero shell" aria-labelledby="hero-title">
+  <div class="hero-copy hero-copy-wide">
+    <p class="eyebrow"><span class="eyebrow-index">04</span><span>Office</span></p>
+    <h1 class="hero-title" id="hero-title">A clean Office install
+      <span class="hero-dim">before you activate it.</span></h1>
+    <p class="lede">
+      Office installs through click-to-run (C2R), not an MSI. There are two sane ways to get it:
+      build it yourself with Microsoft’s Office Deployment Tool, or take a ready-made C2R image.
+      This page walks both, then hands you to the activation guide.
+    </p>
+  </div>
+</section>
+
+<section class="choco shell" aria-labelledby="edition-title">
+  <div class="panel">
+    <h2 class="panel-title" id="edition-title">1 · Know what you are installing</h2>
+    <ul class="act-list">
+      <li><strong>Microsoft 365</strong> — subscription, always updated. Product id <code>O365ProPlusRetail</code>.</li>
+      <li><strong>Office 2024 / 2021 / 2019</strong> — one-time licence. Volume ids look like <code>ProPlus2024Volume</code>, retail ids like <code>ProPlus2024Retail</code>.</li>
+      <li><strong>Architecture</strong> — pick <code>x64</code> unless a 32-bit add-in forces <code>x86</code>. Never install both side by side.</li>
+      <li><strong>Channel</strong> — <code>Current</code> for 365, <code>PerpetualVL2024</code> for the 2024 volume line. The id and channel must match the licence you will use.</li>
+    </ul>
+    <p class="note"><span>Microsoft publishes the full product-id list in its ODT documentation. If an id is wrong, setup simply refuses to start — nothing breaks.</span></p>
+  </div>
+</section>
+
+<section class="choco shell" aria-labelledby="odt-title">
+  <div class="panel">
+    <h2 class="panel-title" id="odt-title">2 · Route A — Office Deployment Tool (official)</h2>
+    <p class="panel-note">Download the ODT from Microsoft (it is a small <code>setup.exe</code> plus samples), then drop a <code>configuration.xml</code> next to it.</p>
+    <div class="code-block"><code>&lt;Configuration&gt;
+  &lt;Add OfficeClientEdition="64" Channel="Current"&gt;
+    &lt;Product ID="O365ProPlusRetail"&gt;
+      &lt;Language ID="en-us" /&gt;
+    &lt;/Product&gt;
+  &lt;/Add&gt;
+  &lt;RemoveMSI /&gt;
+  &lt;Display Level="Full" AcceptEULA="TRUE" /&gt;
+&lt;/Configuration&gt;</code><button class="copy copy-lg" type="button" data-copy='<Configuration>
+  <Add OfficeClientEdition="64" Channel="Current">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <RemoveMSI />
+  <Display Level="Full" AcceptEULA="TRUE" />
+</Configuration>' aria-label="Copy the configuration.xml sample">Copy</button></div>
+    <div class="code-block" style="margin-top:10px"><code>setup.exe /download configuration.xml</code><button class="copy copy-lg" type="button" data-copy="setup.exe /download configuration.xml" aria-label="Copy the download command">Copy</button></div>
+    <div class="code-block" style="margin-top:10px"><code>setup.exe /configure configuration.xml</code><button class="copy copy-lg" type="button" data-copy="setup.exe /configure configuration.xml" aria-label="Copy the install command">Copy</button></div>
+    <p class="panel-note" style="margin-top:12px">The first command fills a local <code>Office</code> folder with the installer (a few GB). The second installs from it, silently and without a browser.</p>
+  </div>
+</section>
+
+<section class="choco shell" aria-labelledby="c2r-title">
+  <div class="panel">
+    <h2 class="panel-title" id="c2r-title">3 · Route B — ready-made C2R image</h2>
+    <p class="panel-note">
+      If you do not want to write XML, the MASSGRAVE project publishes pre-built click-to-run
+      images for every edition and language: pick the edition, copy the address, run it.
+    </p>
+    <ul class="act-list">
+      <li><a href="https://massgrave.dev/office_c2r_links" target="_blank" rel="noreferrer noopener">Office C2R links</a> — one installer per edition and language, hosted by Microsoft.</li>
+      <li><a href="https://massgrave.dev/office_c2r_custom" target="_blank" rel="noreferrer noopener">Custom C2R builder</a> — tick the apps you want, get a trimmed installer.</li>
+      <li><a href="https://massgrave.dev/office_for_mac" target="_blank" rel="noreferrer noopener">Office for Mac</a> — the macOS route, which uses a different installer entirely.</li>
+    </ul>
+    <p class="note"><span>These are catalogue pages, not downloads we host. The files themselves always come from Microsoft’s own CDN.</span></p>
+  </div>
+</section>
+
+<section class="choco shell" aria-labelledby="steps-title">
+  <div class="panel">
+    <h2 class="panel-title" id="steps-title">4 · Install, then check</h2>
+    <div class="term" role="img" aria-label="Installing Office and checking the result">
+      <div class="term-bar"><span></span><span></span><span></span><em>PowerShell (admin)</em></div>
+<pre class="term-body"># remove any older Office first (optional)
+setup.exe /configure remove-old.xml
+
+# install
+setup.exe /configure configuration.xml
+
+# confirm what landed
+cscript "C:\Program Files\Microsoft Office\Office16\OSPP.VBS" /dstatus</pre>
+    </div>
+    <p class="panel-note">A healthy install reports the edition, the channel and a licence status. If it says <em>unlicensed</em>, that is expected before activation — continue to the activation guide.</p>
+    <div class="alert-actions">
+      <a class="button" href="activation.html#office">Activate Office next</a>
+    </div>
+  </div>
+</section>
+
+<section class="choco shell" aria-labelledby="notes-title">
+  <div class="panel">
+    <h2 class="panel-title" id="notes-title">Good to know</h2>
+    <ul class="act-list">
+      <li>Mixed installs are the usual cause of “something went wrong”: uninstall every old Office (MSI and C2R) before installing a new line.</li>
+      <li>The installer needs a stable connection and 5–10 GB free. Running it twice in parallel corrupts the installation.</li>
+      <li>Office 365 and the perpetual editions can coexist only as separate channels — do not mix retail and volume ids in one configuration.</li>
+      <li>After a successful install, Office updates itself. Activation is covered on the <a href="activation.html">activation page</a>.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer shell">
+  <div class="footer-top">
+    <div class="footer-brand"><svg class="brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4"/></svg><span class="brand-word">MSDL</span></div>
+    <p class="footer-note">Installer catalogue links point at <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>; the installers themselves are Microsoft’s.</p>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-stamp mono">office · download &amp; install</p>
+    <div class="footer-links"><a href="index.html">Catalog</a><a href="activation.html">Activation</a><a href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">Source</a></div>
+  </div>
+</footer>
+</body>
+</html>
