@@ -1,0 +1,60 @@
+name: Set up custom domain
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  domain:
+    name: Point msdl.404x.io at the Pages project
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      ZONE_NAME: 404x.io
+      HOST: msdl
+      PROJECT: msdl
+
+    steps:
+      - name: Create the DNS record when missing
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4"
+          auth="Authorization: Bearer ${CF_TOKEN}"
+
+          zone=$(curl -sS -H "$auth" "$api/zones?name=$ZONE_NAME" | jq -r '.result[0].id')
+          echo "zone: $zone"
+
+          found=$(curl -sS -H "$auth" "$api/zones/$zone/dns_records?name=$HOST.$ZONE_NAME" | jq '.result | length')
+          echo "existing records: $found"
+
+          if [ "$found" = "0" ]; then
+            target=$(curl -sS -H "$auth" "$api/accounts/$CF_ACCOUNT/pages/projects/$PROJECT" | jq -r '.result.subdomain')
+            echo "pages subdomain: $target"
+            curl -sS -X POST -H "$auth" -H 'content-type: application/json' \
+              "$api/zones/$zone/dns_records" \
+              -d "{\"type\":\"CNAME\",\"name\":\"$HOST\",\"content\":\"$target\",\"proxied\":true,\"ttl\":1}" \
+              | jq '{success, errors}'
+          else
+            echo "record already exists"
+          fi
+
+      - name: Attach the domain to the Pages project
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4"
+          auth="Authorization: Bearer ${CF_TOKEN}"
+          curl -sS -X POST -H "$auth" -H 'content-type: application/json' \
+            "$api/accounts/$CF_ACCOUNT/pages/projects/$PROJECT/domains" \
+            -d "{\"name\":\"$HOST.$ZONE_NAME\"}" | jq '{success, errors, status: .result.status}'
+
+      - name: Report the domain status
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4"
+          auth="Authorization: Bearer ${CF_TOKEN}"
+          curl -sS -H "$auth" "$api/accounts/$CF_ACCOUNT/pages/projects/$PROJECT/domains/$HOST.$ZONE_NAME" \
+            | jq '{status: .result.status, verification: .result.verification_data.status}'
