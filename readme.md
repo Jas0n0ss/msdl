@@ -176,9 +176,17 @@ The site is static, so Pages serves the repository root as-is.
 `_headers` sets security and cache headers (HTML revalidates, fonts are immutable, JSON is
 cached for five minutes). `_redirects` maps the short paths (`/catalog`, `/choco`, `/activate`).
 
-The download proxy is **not** deployed to Pages: it needs a headless Chromium, which Workers do
-not run. Host `server/` on any Node container (Fly, Render, a VPS) and point
-`<meta name="msdl-api">` at it, for example `https://api.msdl.404x.io`.
+The download proxy is **not** part of Pages. It runs as a Worker with Browser Rendering
+(`worker/`), which drives Microsoft's page in a real browser so Sentinel accepts the request:
+
+```bash
+cd worker && npm install && npx wrangler deploy
+# https://api.msdl.404x.io/skuinfo?product_id=3813
+# https://api.msdl.404x.io/proxy?product_id=3813&sku_id=27160
+```
+
+`index.html` points `<meta name="msdl-api">` at that Worker. A Node container (`server/`) is kept
+as an alternative for hosts without Browser Rendering.
 
 Running locally
 ---------------

@@ -1,0 +1,11 @@
+name = "msdl-api"
+main = "index.mjs"
+compatibility_date = "2026-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[browser]
+binding = "BROWSER"
+
+[[routes]]
+pattern = "api.msdl.404x.io"
+custom_domain = true
