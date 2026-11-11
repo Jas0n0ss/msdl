@@ -68,6 +68,26 @@ function withBrowserSlot(task) {
 
 const isRateLimited = (error) => /429|rate limit/i.test(error?.message ?? '');
 
+/** Tries the known Microsoft pages when the caller did not say which family. */
+async function driveAnyFamily(env, { productId, skuId, family }) {
+    const numeric = Number(productId);
+    const ordered = Number.isFinite(numeric) && numeric < 3000
+        ? ['windows-10', 'windows-11']
+        : ['windows-11', 'windows-10'];
+    const candidates = family ? [family] : ordered;
+    let lastError;
+    for (const candidate of candidates) {
+        try {
+            const result = await drivePage(env, { productId, skuId, family: candidate });
+            if (skuId ? result.links?.length : result.languages?.length) return result;
+            lastError = new Error('No data returned');
+        } catch (error) {
+            lastError = error;
+        }
+    }
+    throw lastError ?? new Error('No family matched this product');
+}
+
 /**
  * Drives Microsoft's own download page and reads what it produces. Doing the
  * flow in the page is what makes Sentinel accept the requests; a bare fetch
@@ -137,7 +157,7 @@ async function drivePage(env, { productId, skuId, family }) {
             return { links };
         } catch (error) {
             if (isRateLimited(error) && retries > 0) {
-                await new Promise((resolve) => setTimeout(resolve, 4000));
+                await new Promise((resolve) => setTimeout(resolve, 6000));
                 return attempt(retries - 1);
             }
             throw error;
@@ -146,7 +166,7 @@ async function drivePage(env, { productId, skuId, family }) {
         }
     };
 
-    return withBrowserSlot(() => attempt(3));
+    return withBrowserSlot(() => attempt(4));
 }
 
 export default {
@@ -163,14 +183,14 @@ export default {
 
             if (url.pathname === '/skuinfo') {
                 const productId = url.searchParams.get('product_id');
-                const family = url.searchParams.get('family') ?? 'windows-11';
+                const family = url.searchParams.get('family') ?? null;
                 if (!productId) return failure('product_id is required', 400);
 
-                const key = `sku:${family}:${productId}`;
+                const key = `sku:${family ?? 'auto'}:${productId}`;
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { languages } = await drivePage(env, { productId, family });
+                const { languages } = await driveAnyFamily(env, { productId, family });
                 const payload = {
                     ValidationContainer: { Errors: [] },
                     Skus: languages.map((entry) => {
@@ -190,14 +210,14 @@ export default {
             if (url.pathname === '/proxy' || url.pathname === '/links') {
                 const productId = url.searchParams.get('product_id');
                 const skuId = url.searchParams.get('sku_id') ?? url.searchParams.get('sku');
-                const family = url.searchParams.get('family') ?? 'windows-11';
+                const family = url.searchParams.get('family') ?? null;
                 if (!productId && !skuId) return failure('product_id or sku_id is required', 400);
 
-                const key = `link:${family}:${productId}:${skuId}`;
+                const key = `link:${family ?? 'auto'}:${productId}:${skuId}`;
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { links } = await drivePage(env, { productId, skuId, family });
+                const { links } = await driveAnyFamily(env, { productId, skuId, family });
                 const payload = {
                     ProductDownloadOptions: links.map((link) => ({
                         Name: link.name,
