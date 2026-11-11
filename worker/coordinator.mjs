@@ -4,7 +4,7 @@
  * Rendering concurrency limit.
  */
 
-import { driveAnyFamily, closeBrowser } from './microsoft.mjs';
+import { driveAnyFamily, closeBrowser, withTimeout } from './microsoft.mjs';
 
 const CACHE_TTL_MS = 10 * 60 * 1000;
 
@@ -42,7 +42,11 @@ export class Coordinator {
         let promise = this.inflight.get(key);
         if (!promise) {
             promise = this.enqueue(async () => {
-                const result = await driveAnyFamily(this.env, task);
+                const result = await withTimeout(
+                    driveAnyFamily(this.env, task),
+                    50_000,
+                    'Browser run timed out',
+                );
                 const payload =
                     task.skuId
                         ? {

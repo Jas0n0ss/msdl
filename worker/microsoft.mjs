@@ -8,6 +8,12 @@ export const PAGES = {
     'windows-10': 'https://www.microsoft.com/en-us/software-download/windows10ISO',
 };
 
+export const withTimeout = (promise, ms, message) =>
+    Promise.race([
+        promise,
+        new Promise((_, reject) => setTimeout(() => reject(new Error(message)), ms)),
+    ]);
+
 export const isRateLimited = (error) => /429|rate limit/i.test(error?.message ?? '');
 
 // One browser serves a burst of requests: launching a new one for every call
@@ -121,7 +127,7 @@ export async function drivePage(env, { productId, skuId, family, arch }) {
         }
     };
 
-    return attempt(4);
+    return withTimeout(attempt(2), 45_000, 'Microsoft took too long to answer');
 }
 
 export async function driveAnyFamily(env, { productId, skuId, family, arch }) {

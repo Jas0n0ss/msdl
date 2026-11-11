@@ -28,14 +28,21 @@ const json = (body, status = 200) =>
 const failure = (message, status = 502) =>
     json({ Errors: [{ Key: 'ProxyError', Value: message, Type: 8 }] }, status);
 
+const TIMEOUT_MS = 55_000;
+
 async function coordinate(env, task) {
     const id = env.COORDINATOR.idFromName('msdl');
     const stub = env.COORDINATOR.get(id);
-    const response = await stub.fetch('https://coordinator/run', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(task),
-    });
+    const response = await Promise.race([
+        stub.fetch('https://coordinator/run', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(task),
+        }),
+        new Promise((_, reject) =>
+            setTimeout(() => reject(Object.assign(new Error('Timed out waiting for the browser'), { timeout: true })), TIMEOUT_MS),
+        ),
+    ]);
     const data = await response.json();
     return data.payload;
 }
@@ -84,6 +91,7 @@ export default {
             return failure('Unknown endpoint', 404);
         } catch (error) {
             const message = error?.message ?? 'Unexpected error';
+            if (error?.timeout) return failure('The browser took too long. Try again in a moment.', 504);
             if (/429|rate limit/i.test(message)) {
                 return json(
                     {
