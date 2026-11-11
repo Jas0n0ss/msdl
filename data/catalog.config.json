@@ -1,0 +1,99 @@
+{
+  "$comment": "Curation policy for tools/update-products.mjs. Edit this file to change which Microsoft products are published, then let CI regenerate data/products.json.",
+  "apiBase": "https://api.gravesoft.dev/msdl",
+  "discoveryWindow": 300,
+  "families": [
+    {
+      "id": "windows-11",
+      "label": "Windows 11",
+      "source": "connector",
+      "match": "^Windows 11\\b",
+      "retain": 8
+    },
+    {
+      "id": "windows-10",
+      "label": "Windows 10",
+      "source": "connector",
+      "match": "^Windows 10\\b",
+      "retain": 2
+    },
+    {
+      "id": "windows-server",
+      "label": "Windows Server",
+      "source": "evalcenter",
+      "match": "^Windows Server\\b",
+      "retain": 3
+    },
+    {
+      "id": "windows-7",
+      "label": "Windows 7",
+      "source": "connector",
+      "match": "^Windows 7\\b",
+      "retain": 10
+    }
+  ],
+  "exclude": [
+    "Windows 8",
+    "Windows 8\\.1",
+    "Insider Preview",
+    "Enterprise VL",
+    "Media Feature",
+    "Language Pack",
+    "Feature Pack",
+    "Desktop App Converter",
+    "IoT",
+    "Preinstallation",
+    "Hypercore",
+    "FOD",
+    "VHDX",
+    "ADK",
+    "SDK",
+    "WDK",
+    "COEM",
+    "ARM Home China",
+    "ARM Pro China",
+    "Server Preview",
+    "Azure Edition"
+  ],
+  "buildVersion": {
+    "19045": "22H2",
+    "22621": "22H2",
+    "22631": "23H2",
+    "26100": "24H2",
+    "26200": "25H2",
+    "26300": "26H2"
+  },
+  "knownBuilds": {
+    "2378": "19045.2006",
+    "2618": "19045.2965",
+    "3113": "26100.1742",
+    "3114": "26100.1742",
+    "3115": "26100.1742",
+    "3131": "26100.1742",
+    "3132": "26100.1742",
+    "3133": "26100.1742",
+    "3262": "26200.6584",
+    "3263": "26200.6584",
+    "3264": "26200.6584",
+    "3265": "26200.6584",
+    "3266": "26200.6584",
+    "3267": "26200.6584"
+  },
+  "evalPages": [
+    {
+      "id": "windows-server-2025",
+      "name": "Windows Server 2025",
+      "url": "https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025"
+    },
+    {
+      "id": "windows-server-2022",
+      "name": "Windows Server 2022",
+      "url": "https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022"
+    },
+    {
+      "id": "windows-server-2019",
+      "name": "Windows Server 2019",
+      "url": "https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019"
+    }
+  ]
+}

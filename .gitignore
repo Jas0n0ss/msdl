@@ -1,0 +1,4 @@
+node_modules/
+.npmcache/
+.shots/
+.DS_Store

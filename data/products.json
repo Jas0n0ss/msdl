@@ -1,21 +1,338 @@
 {
-  "48": "Windows 8.1 Single Language (9600.17415)",
-  "52": "Windows 8.1 (9600.17415)",
-  "55": "Windows 8.1 N (9600.17415)",
-  "61": "Windows 8.1 K (9600.17415)",
-  "62": "Windows 8.1 KN (9600.17415)",
-  "2378": "Windows 10 22H2 Home China (19045.2006)",
-  "2618": "❤️ Windows 10 22H2 v1 (19045.2965)",
-  "3113": "Windows 11 24H2 (26100.1742)",
-  "3114": "Windows 11 24H2 Home China (26100.1742)",
-  "3115": "Windows 11 24H2 Pro China (26100.1742)",
-  "3131": "Windows 11 Arm64 24H2 (26100.1742)",
-  "3132": "Windows 11 Arm64 24H2 Home China (26100.1742)",
-  "3133": "Windows 11 Arm64 24H2 Pro China (26100.1742)",
-  "3262": "❤️ Windows 11 25H2 (26200.6584)",
-  "3263": "Windows 11 25H2 Home China (26200.6584)",
-  "3264": "Windows 11 25H2 Pro China (26200.6584)",
-  "3265": "Windows 11 Arm64 25H2 (26200.6584)",
-  "3266": "Windows 11 Arm64 25H2 Home China (26200.6584)",
-  "3267": "Windows 11 Arm64 25H2 Pro China (26200.6584)"
+  "updated": "2026-11-11T05:58:38.505Z",
+  "generator": "tools/update-products.mjs",
+  "families": [
+    {
+      "id": "windows-11",
+      "label": "Windows 11"
+    },
+    {
+      "id": "windows-10",
+      "label": "Windows 10"
+    },
+    {
+      "id": "windows-server",
+      "label": "Windows Server"
+    },
+    {
+      "id": "windows-7",
+      "label": "Windows 7"
+    }
+  ],
+  "products": [
+    {
+      "id": "3813",
+      "family": "windows-11",
+      "name": "Windows 11 26H2 (26300.9457)",
+      "version": "26H2",
+      "build": "26300.9457",
+      "arch": "x64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": false
+    },
+    {
+      "id": "3816",
+      "family": "windows-11",
+      "name": "Windows 11 26H2 Arm64 (26300.9457)",
+      "version": "26H2",
+      "build": "26300.9457",
+      "arch": "arm64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": false
+    },
+    {
+      "id": "3262",
+      "family": "windows-11",
+      "name": "Windows 11 25H2 (26200.6584)",
+      "version": "25H2",
+      "build": "26200.6584",
+      "arch": "x64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": false
+    },
+    {
+      "id": "3265",
+      "family": "windows-11",
+      "name": "Windows 11 25H2 Arm64 (26200.6584)",
+      "version": "25H2",
+      "build": "26200.6584",
+      "arch": "arm64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": false
+    },
+    {
+      "id": "3113",
+      "family": "windows-11",
+      "name": "Windows 11 24H2 (26100.1742)",
+      "version": "24H2",
+      "build": "26100.1742",
+      "arch": "x64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": false
+    },
+    {
+      "id": "3131",
+      "family": "windows-11",
+      "name": "Windows 11 24H2 Arm64 (26100.1742)",
+      "version": "24H2",
+      "build": "26100.1742",
+      "arch": "arm64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": false
+    },
+    {
+      "id": "2618",
+      "family": "windows-10",
+      "name": "Windows 10 22H2 v1 (19045.2965)",
+      "version": "22H2",
+      "build": "19045.2965",
+      "arch": "x64",
+      "source": "connector",
+      "skus": 38,
+      "pinned": true
+    },
+    {
+      "id": "2378",
+      "family": "windows-10",
+      "name": "Windows 10 22H2 Home China (19045.2006)",
+      "version": "22H2",
+      "build": "19045.2006",
+      "arch": "x64",
+      "source": "connector",
+      "skus": 1,
+      "pinned": true
+    },
+    {
+      "id": "windows-server-2025",
+      "family": "windows-server",
+      "name": "Windows Server 2025",
+      "version": "2025",
+      "build": "26100.32230",
+      "arch": "x64",
+      "channel": "evaluation",
+      "source": "evalcenter",
+      "skus": 8,
+      "links": [
+        {
+          "locale": "en-US",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345730&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "zh-CN",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345732&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "fr-FR",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345733&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "de-DE",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345827&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "it-IT",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345927&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "ja-JP",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345828&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "ru-RU",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345829&clcid=0x409&culture=en-us&country=us"
+        },
+        {
+          "locale": "es-ES",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2345734&clcid=0x409&culture=en-us&country=us"
+        }
+      ],
+      "pinned": true
+    },
+    {
+      "id": "windows-server-2022",
+      "family": "windows-server",
+      "name": "Windows Server 2022",
+      "version": "2022",
+      "build": null,
+      "arch": "x64",
+      "channel": "evaluation",
+      "source": "evalcenter",
+      "skus": 8,
+      "links": [
+        {
+          "locale": "en-US",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US"
+        },
+        {
+          "locale": "zh-CN",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x804&culture=zh-cn&country=CN"
+        },
+        {
+          "locale": "fr-FR",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x40c&culture=fr-fr&country=FR"
+        },
+        {
+          "locale": "de-DE",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x407&culture=de-de&country=DE"
+        },
+        {
+          "locale": "it-IT",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x410&culture=it-it&country=IT"
+        },
+        {
+          "locale": "ja-JP",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x411&culture=ja-jp&country=JP"
+        },
+        {
+          "locale": "ko-KR",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x419&culture=ru-ru&country=RU"
+        },
+        {
+          "locale": "es-ES",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x40a&culture=es-es&country=ES"
+        }
+      ],
+      "pinned": true
+    },
+    {
+      "id": "windows-server-2019",
+      "family": "windows-server",
+      "name": "Windows Server 2019",
+      "version": "2019",
+      "build": "17763.3650",
+      "arch": "x64",
+      "channel": "evaluation",
+      "source": "evalcenter",
+      "skus": 8,
+      "links": [
+        {
+          "locale": "en-US",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x409&culture=en-us&country=US"
+        },
+        {
+          "locale": "zh-CN",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x804&culture=zh-cn&country=CN"
+        },
+        {
+          "locale": "fr-FR",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x40c&culture=fr-fr&country=FR"
+        },
+        {
+          "locale": "de-DE",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x407&culture=de-de&country=DE"
+        },
+        {
+          "locale": "it-IT",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x410&culture=it-it&country=IT"
+        },
+        {
+          "locale": "ja-JP",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x411&culture=ja-jp&country=JP"
+        },
+        {
+          "locale": "ru-RU",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x419&culture=ru-ru&country=RU"
+        },
+        {
+          "locale": "es-ES",
+          "url": "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x40a&culture=es-es&country=ES"
+        }
+      ],
+      "pinned": true
+    },
+    {
+      "id": "2",
+      "family": "windows-7",
+      "name": "Windows 7 Home Basic SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 11,
+      "pinned": true
+    },
+    {
+      "id": "10",
+      "family": "windows-7",
+      "name": "Windows 7 Home Premium N SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 23,
+      "pinned": true
+    },
+    {
+      "id": "6",
+      "family": "windows-7",
+      "name": "Windows 7 Home Premium SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 35,
+      "pinned": true
+    },
+    {
+      "id": "12",
+      "family": "windows-7",
+      "name": "Windows 7 Professional N SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 27,
+      "pinned": true
+    },
+    {
+      "id": "4",
+      "family": "windows-7",
+      "name": "Windows 7 Professional SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 35,
+      "pinned": true
+    },
+    {
+      "id": "28",
+      "family": "windows-7",
+      "name": "Windows 7 Starter SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 10,
+      "pinned": true
+    },
+    {
+      "id": "14",
+      "family": "windows-7",
+      "name": "Windows 7 Ultimate N SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 23,
+      "pinned": true
+    },
+    {
+      "id": "8",
+      "family": "windows-7",
+      "name": "Windows 7 Ultimate SP1",
+      "version": "SP1",
+      "build": null,
+      "arch": null,
+      "source": "connector",
+      "skus": 35,
+      "pinned": true
+    }
+  ]
 }

@@ -1,77 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="description"
-        content="Microsoft Software Download Listing lets you browse and download products from Microsoft Software Download.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="description"
+        content="An index of every official Windows release. Retail, Arm64 and Server images, read from Microsoft's catalog and refreshed daily.">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="og:site_name" content="Microsoft Software Download Listing">
-    <meta property="og:title" content="Microsoft Software Download Listing">
+    <meta property="og:site_name" content="MSDL">
+    <meta property="og:title" content="MSDL — Microsoft Software Download Listing">
     <meta property="og:type" content="website">
     <meta property="og:description"
-        content="Microsoft Software Download Listing lets you browse and download products from Microsoft Software Download.">
-    <meta property="og:image" content="/img/cover.png">
+        content="An index of every official Windows release. Retail, Arm64 and Server images, read from Microsoft's catalog and refreshed daily.">
+    <meta property="og:image" content="img/cover.png">
 
-    <title>Microsoft Software Download Listing</title>
+    <title>MSDL — Microsoft Software Download Listing</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <script>
+        // Apply the saved appearance before first paint so the page never flashes.
+        try {
+            var storedTheme = localStorage.getItem('msdl-theme');
+            document.documentElement.dataset.theme =
+                storedTheme === 'light' || storedTheme === 'dark'
+                    ? storedTheme
+                    : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } catch (error) {
+            /* storage can be blocked; the default theme still renders */
+        }
+    </script>
+
+    <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/msdl.js"></script>
 </head>
 
 <body>
-    <h1>Microsoft Software Download Listing 🏳️‍🌈</h1>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <a href="https://github.com/gravesoft/msdl">
-        <b>Source code on GitHub</b>
-    </a>
+    <svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+        <symbol id="i-mark" viewBox="0 0 20 20">
+            <rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor" />
+            <rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor" />
+            <rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" />
+            <rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4" />
+        </symbol>
+        <symbol id="i-search" viewBox="0 0 20 20">
+            <circle cx="8.8" cy="8.8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+            <path d="m13 13 3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-external" viewBox="0 0 20 20">
+            <path d="M8 4.2h7.8V12M15.8 4.2 6.2 13.8" fill="none" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 20 20">
+            <circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M10 2v1.8M10 16.2V18M18 10h-1.8M3.8 10H2M15.7 4.3l-1.3 1.3M5.6 14.4l-1.3 1.3M15.7 15.7l-1.3-1.3M5.6 5.6 4.3 4.3"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 20 20">
+            <path d="M16.2 12.3A6.6 6.6 0 0 1 7.7 3.8a6.6 6.6 0 1 0 8.5 8.5Z" fill="none" stroke="currentColor"
+                stroke-width="1.6" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 20 20">
+            <path d="m5.8 5.8 8.4 8.4m0-8.4-8.4 8.4" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 20 20">
+            <path
+                d="M10 1.8a8.3 8.3 0 0 0-2.6 16.2c.4.1.6-.2.6-.4v-1.5c-2.3.5-2.8-1.1-2.8-1.1-.4-1-.9-1.2-.9-1.2-.8-.5 0-.5 0-.5.8 0 1.3.9 1.3.9.8 1.3 2 .9 2.5.7 0-.6.3-1 .6-1.2-1.9-.2-3.8-1-3.8-4.2 0-.9.3-1.7.8-2.3 0-.2-.3-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 0 1 4.2 0c1.6-1.1 2.3-.9 2.3-.9.4 1.2.1 2.1.1 2.3.5.6.8 1.4.8 2.3 0 3.2-2 4-3.9 4.2.3.3.6.8.6 1.6v2.4c0 .2.2.5.6.4A8.3 8.3 0 0 0 10 1.8Z"
+                fill="currentColor" />
+        </symbol>
+    </svg>
+
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="#" aria-label="MSDL — all products">
+                <svg class="brand-mark" aria-hidden="true" focusable="false">
+                    <use href="#i-mark" />
+                </svg>
+                <span class="brand-word">MSDL</span>
+            </a>
+
+            <nav class="header-nav" aria-label="Primary">
+                <a class="nav-link" href="#catalog">Catalog</a>
+                <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-github" />
+                    </svg>
+                    <span class="nav-link-text">Source</span>
+                </a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
+                    <svg class="icon theme-icon-light" aria-hidden="true" focusable="false">
+                        <use href="#i-sun" />
+                    </svg>
+                    <svg class="icon theme-icon-dark" aria-hidden="true" focusable="false">
+                        <use href="#i-moon" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero shell" aria-labelledby="hero-title">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">
+                        <span class="eyebrow-index">01</span>
+                        <span>Microsoft Software Download</span>
+                    </p>
+                    <h1 class="hero-title" id="hero-title">
+                        Every official Windows release.
+                        <span class="hero-dim">One index.</span>
+                    </h1>
+                    <p class="lede">
+                        Retail, Arm64 and Server images — read from Microsoft’s own catalogue, checked
+                        every night, and linked straight to the download servers.
+                    </p>
+                </div>
+
+                <aside class="manifest" aria-label="Catalogue status">
+                    <div class="manifest-head">
+                        <span class="pulse" id="manifest-pulse" aria-hidden="true"></span>
+                        <span class="manifest-title">catalog / live</span>
+                        <span class="manifest-id" id="manifest-id" aria-hidden="true">—</span>
+                    </div>
+                    <dl class="manifest-grid">
+                        <div class="manifest-cell">
+                            <dt>Updated</dt>
+                            <dd id="manifest-updated">—</dd>
+                        </div>
+                        <div class="manifest-cell">
+                            <dt>Entries</dt>
+                            <dd id="manifest-entries">—</dd>
+                        </div>
+                        <div class="manifest-cell">
+                            <dt>Families</dt>
+                            <dd id="manifest-families">—</dd>
+                        </div>
+                        <div class="manifest-cell">
+                            <dt>Cadence</dt>
+                            <dd>daily · 04:17 UTC</dd>
+                        </div>
+                    </dl>
+                    <p class="manifest-foot">
+                        <span class="mono">data/products.json</span>
+                        <span class="manifest-source">microsoft.com → GitHub Actions</span>
+                    </p>
+                </aside>
+            </div>
+
+            <div class="search" role="search">
+                <svg class="icon search-icon" aria-hidden="true" focusable="false">
+                    <use href="#i-search" />
+                </svg>
+                <label class="visually-hidden" for="search-products">Search products</label>
+                <input class="search-input" id="search-products" type="search"
+                    placeholder="Filter by release, edition, build or architecture" autocomplete="off"
+                    spellcheck="false" enterkeyhint="search">
+                <kbd class="key search-hint" id="search-hint" aria-hidden="true">/</kbd>
+                <button class="search-clear" id="search-clear" type="button" aria-label="Clear search" hidden>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-close" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="filters" id="filters" role="group" aria-label="Filter by product family"></div>
+
+            <p class="shortcuts" aria-hidden="true">
+                <kbd class="key">/</kbd> search
+                <span class="shortcut-sep">·</span>
+                <kbd class="key">↑</kbd><kbd class="key">↓</kbd> move
+                <span class="shortcut-sep">·</span>
+                <kbd class="key">↵</kbd> open
+                <span class="shortcut-sep">·</span>
+                <kbd class="key">esc</kbd> close
+            </p>
+        </section>
+
+        <section class="catalog shell" id="catalog" aria-labelledby="catalog-title">
+            <h2 class="visually-hidden" id="catalog-title">Product catalogue</h2>
+
+            <div class="catalog-meta">
+                <p class="result-count" id="result-count" role="status" aria-live="polite">&nbsp;</p>
+                <p class="catalog-updated" id="catalog-updated"></p>
+            </div>
+            <div class="catalog-body" id="catalog-body"></div>
+        </section>
+
+        <section class="detail shell" id="detail" aria-labelledby="detail-title" hidden></section>
+    </main>
+
+    <footer class="site-footer shell">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <svg class="brand-mark" aria-hidden="true" focusable="false">
+                    <use href="#i-mark" />
+                </svg>
+                <span class="brand-word">MSDL</span>
+            </div>
+            <p class="footer-note">
+                An unofficial index of Microsoft software. Downloads are served by Microsoft;
+                MSDL is not affiliated with Microsoft.
+            </p>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-stamp mono" id="footer-stamp">built from data/products.json</p>
+            <div class="footer-links">
+                <a href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">Source</a>
+                <a href="https://github.com/Jas0n0ss/msdl/blob/main/LICENSE" target="_blank"
+                    rel="noreferrer noopener">License</a>
+                <a href="https://gravesoft.dev/troubleshoot/" target="_blank" rel="noreferrer noopener">Troubleshoot</a>
+            </div>
+        </div>
+    </footer>
 
     <noscript>
-        <p>This page requires JavaScript to work.</p>
+        <div class="noscript-banner">This page requires JavaScript to load the product list.</div>
     </noscript>
-
-    <div id="products-list">
-        <h2>Select product</h2>
-        <input id="search-products" type="search" placeholder="Search with regex..." onInput="updateResults();">
-        <div id="quick-search">
-            📌
-            <button onClick="setSearch('Windows 8\\.1');">Windows 8.1</button>
-            <button onClick="setSearch('Windows 10 22H2');">Latest Windows 10</button>
-            <button onClick="setSearch('25H2');">Latest Windows 11</button>
-        </div>
-        <table style="table-layout: auto;">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>ID</th>
-                </tr>
-            </thead>
-            <tbody id="products-table-body"></tbody>
-        </table>
-    </div>
-
-    <div id="msdl-ms-content"></div>
-
-    <div id="msdl-please-wait">
-        <h2>Please wait...</h2>
-        <p>Please wait while the data you requested is being retrieved.</p>
-    </div>
-
-    <div id="msdl-processing-error">
-        <h2>Error</h2>
-        <p>An error has occurred while processing your request. If reloading the page does not work, <a
-                href="https://gravesoft.dev/troubleshoot/">contact us</a> or create an issue on GitHub.</p>
-    </div>
-
-    <div id="back-to-products">
-        <hr>
-        <button onClick="backToProducts();">Go back to the product list</button>
-    </div>
-
-    <input id="msdl-session-id" type="hidden">
 </body>
 
 </html>

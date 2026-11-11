@@ -1,0 +1,101 @@
+name: Update product catalog
+
+on:
+  schedule:
+    # Twice a day, just after Microsoft's usual publish windows. The second run
+    # is a safety net: if the first one fails, the catalogue is still refreshed
+    # within the same day.
+    - cron: '17 4 * * *'
+    - cron: '17 16 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Generate the catalogue and print it without committing'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: update-product-catalog
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Refresh data/products.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          # A full clone lets the commit step rebase onto a concurrent push.
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Regenerate the catalog from Microsoft
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node tools/update-products.mjs --dry-run > /tmp/catalog.json
+            node -e "const d=require('/tmp/catalog.json'); console.log('dry run:', d.products.length, 'products,', d.families.length, 'families')"
+          else
+            node tools/update-products.mjs
+          fi
+
+      - name: Validate the generated catalog
+        run: node tools/validate-products.mjs
+
+      - name: Commit and push when something changed
+        if: ${{ !inputs.dry_run }}
+        run: |
+          if git diff --quiet -- data/products.json; then
+            echo "Catalog is already current — nothing to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/products.json
+          git commit -m "chore(data): refresh Microsoft product catalog"
+
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "Pushed on attempt ${attempt}."
+              exit 0
+            fi
+            echo "Push rejected (attempt ${attempt}) — rebasing onto origin/${GITHUB_REF_NAME}."
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || exit 1
+          done
+
+          echo "Could not push the refreshed catalog after 3 attempts." >&2
+          exit 1
+
+      - name: Report a failed refresh
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          body=$(cat <<EOF
+          The scheduled catalogue refresh failed, so \`data/products.json\` may be out of date.
+
+          - Run: ${RUN_URL}
+          - Commit: ${{ github.sha }}
+
+          Re-run the workflow once Microsoft's services are reachable again.
+          EOF
+          )
+
+          existing=$(gh issue list --state open --search 'Catalog refresh failed in:title' --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "Catalog refresh failed" --body "$body"
+          fi
