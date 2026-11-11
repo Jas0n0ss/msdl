@@ -6,6 +6,8 @@
  * Microsoft download page, where cookies, referrer and origin are already
  * correct, and returns the JSON to the site.
  *
+ * Deployed by .github/workflows/deploy-worker.yml on every worker/ change.
+ *
  *   GET /skuinfo?product_id=3813
  *   GET /proxy?product_id=3813&sku_id=27160
  *   GET /health
