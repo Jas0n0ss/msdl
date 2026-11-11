@@ -12,6 +12,13 @@
         'https://api.gravesoft.dev/msdl'
     ).replace(/\/+$/, '');
     const MICROSOFT_DOWNLOAD_PAGE = 'https://www.microsoft.com/software-download';
+    const MS_PAGES = {
+        'windows-11': 'https://www.microsoft.com/software-download/windows11',
+        'windows-10': 'https://www.microsoft.com/software-download/windows10',
+        'windows-server': 'https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025',
+        'windows-7': 'https://www.microsoft.com/software-download',
+    };
+    const msPageFor = (product) => MS_PAGES[product?.family] ?? MICROSOFT_DOWNLOAD_PAGE;
     const THEME_KEY = 'msdl-theme';
     const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
 
@@ -531,7 +538,7 @@
                         <p class="alert-body">${escapeHtml(state.error.message)}</p>
                         <div class="alert-actions">
                             <button class="button button-secondary" type="button" data-action="retry">Try again</button>
-                            <a class="button" href="${MICROSOFT_DOWNLOAD_PAGE}" target="_blank" rel="noreferrer noopener">
+                            <a class="button" href="${escapeHtml(msPageFor(state.product))}" target="_blank" rel="noreferrer noopener">
                                 Open Microsoft downloads ${icon('external')}
                             </a>
                         </div>
