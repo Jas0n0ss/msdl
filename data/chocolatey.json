@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-11T08:51:42.895Z",
+  "updated": "2026-11-11T22:44:35.593Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -77,14 +77,14 @@
       "name": "Opera",
       "summary": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer.",
       "category": "browsers",
-      "downloads": 1845508
+      "downloads": 1846276
     },
     {
       "id": "librewolf",
       "name": "LibreWolf",
       "summary": "A fork of Firefox, focused on privacy, security and freedom.",
       "category": "browsers",
-      "downloads": 466987
+      "downloads": 467086
     },
     {
       "id": "zoom",
@@ -119,7 +119,7 @@
       "name": "Thunderbird (Release)",
       "summary": "A free email client from Mozilla",
       "category": "communication",
-      "downloads": 5196796
+      "downloads": 5197094
     },
     {
       "id": "signal",
@@ -133,7 +133,7 @@
       "name": "Telegram",
       "summary": "Cloud-based synchronized messaging app with a focus on speed and security",
       "category": "communication",
-      "downloads": 949002
+      "downloads": 949220
     },
     {
       "id": "discord",
@@ -308,7 +308,7 @@
       "name": "Notion",
       "summary": "Your connected workspace for wiki, docs and projects.",
       "category": "office",
-      "downloads": 468682
+      "downloads": 470179
     },
     {
       "id": "sumatrapdf",
@@ -434,14 +434,14 @@
       "name": "WinSCP",
       "summary": "Open source free SFTP client, SCP client, FTPS client and FTP client",
       "category": "utilities",
-      "downloads": 3473305
+      "downloads": 3490535
     },
     {
       "id": "bitwarden",
       "name": "Bitwarden",
       "summary": "A secure and free password manager for all of your devices.",
       "category": "utilities",
-      "downloads": 2275309
+      "downloads": 2279577
     },
     {
       "id": "crystaldiskinfo",
@@ -518,7 +518,7 @@
       "name": "RustDesk",
       "summary": "Open source virtual / remote desktop infrastructure for everyone! The open source TeamViewer alternative. Display and control your PC and Android devices.",
       "category": "utilities",
-      "downloads": 334139
+      "downloads": 337086
     },
     {
       "id": "bleachbit",
@@ -581,49 +581,49 @@
       "name": "Git",
       "summary": "Git for Windows offers a native set of tools that bring the full feature set of the Git SCM to Windows",
       "category": "developer",
-      "downloads": 20149429
+      "downloads": 20149791
     },
     {
       "id": "vscode.install",
       "name": "Visual Studio Code (Install)",
       "summary": "Visual Studio Code",
       "category": "developer",
-      "downloads": 10493177
+      "downloads": 10494660
     },
     {
       "id": "vscode",
       "name": "Visual Studio Code",
       "summary": "Visual Studio Code",
       "category": "developer",
-      "downloads": 10397321
+      "downloads": 10398859
     },
     {
       "id": "powershell-core",
       "name": "powershell-core (Install)",
       "summary": "PowerShell Core is the open source multiplatform version of PowerShell",
       "category": "developer",
-      "downloads": 9929543
+      "downloads": 9930174
     },
     {
       "id": "microsoft-windows-terminal",
       "name": "Windows Terminal",
       "summary": "Windows Terminal",
       "category": "developer",
-      "downloads": 9766926
+      "downloads": 9767088
     },
     {
       "id": "awscli",
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7449110
+      "downloads": 7453653
     },
     {
       "id": "nodejs",
       "name": "Node JS",
       "summary": "Node JS - Evented I/O for v8 JavaScript.",
       "category": "developer",
-      "downloads": 7131405
+      "downloads": 7152360
     },
     {
       "id": "curl",
@@ -640,18 +640,18 @@
       "downloads": 5141676
     },
     {
+      "id": "vim",
+      "name": "Vim",
+      "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
+      "category": "developer",
+      "downloads": 4942685
+    },
+    {
       "id": "nodejs-lts",
       "name": "Node.js LTS (Install)",
       "summary": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine",
       "category": "developer",
       "downloads": 4942469
-    },
-    {
-      "id": "vim",
-      "name": "Vim",
-      "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
-      "category": "developer",
-      "downloads": 4941969
     },
     {
       "id": "jdk8",
@@ -686,7 +686,7 @@
       "name": "Visual Studio 2022 Build Tools",
       "summary": "Build Tools allow you to build native and managed MSBuild-based applications without requiring the Visual Studio IDE.",
       "category": "developer",
-      "downloads": 3288567
+      "downloads": 3296536
     },
     {
       "id": "llvm",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2688469
+      "downloads": 2689546
     },
     {
       "id": "terraform",
@@ -819,7 +819,7 @@
       "name": "JetBrains IntelliJ IDEA",
       "summary": "Capable and Ergonomic Java IDE",
       "category": "developer",
-      "downloads": 845648
+      "downloads": 845750
     },
     {
       "id": "nvm",
@@ -861,7 +861,7 @@
       "name": "Visual Studio 2022 Community",
       "summary": "Free, full-featured and extensible tool for students, open-source and individual developers",
       "category": "developer",
-      "downloads": 593813
+      "downloads": 596755
     },
     {
       "id": "redis-64",
