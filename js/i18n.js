@@ -76,6 +76,104 @@
         'Office — which method?': 'Office —— 选哪种方式？',
         'Good to know': '注意事项',
         'Press': '按下', 'type': '输入', 'and paste this line': '并粘贴这一行', 'then press Enter.': '然后回车。',
+
+        // dynamic UI
+        'entries': '条', 'latest': '最新', 'Product catalogue': '产品目录',
+        'Chat & meetings': '聊天与会议', 'Media & graphics': '影音与图形', 'Documents': '文档',
+        'Utilities': '实用工具', 'Developer tools': '开发工具', 'Runtimes & drivers': '运行库与驱动',
+        'Gaming': '游戏', 'Browsers': '浏览器', 'All': '全部', 'selected': '已选',
+        'packages': '个软件包', 'updated': '更新于', 'Clear': '清空', 'Copy command': '复制命令',
+        'Copy': '复制', 'Troubleshoot': '故障排查',
+        // office
+        'Microsoft 365': 'Microsoft 365',
+        '— subscription, always updated. Product id': '—— 订阅制，持续更新。产品 ID',
+        'Office 2024 / 2021 / 2019': 'Office 2024 / 2021 / 2019',
+        '— one-time licence. Volume ids look like': '—— 一次性授权。批量版 ID 形如',
+        ', retail ids like': '，零售版 ID 形如',
+        'unless a 32-bit add-in forces': '除非有 32 位插件必须用',
+        '. Never install both side by side.': '。不要同时安装两种架构。',
+        'for the 2024 volume line. The id and channel must match the licence you will use.':
+            '（2024 批量版）。ID 与频道必须与你将使用的授权一致。',
+        'Microsoft publishes the full product-id list in its ODT documentation. If an id is wrong, setup simply refuses to start — nothing breaks.':
+            '微软在 ODT 文档中公布了完整的产品 ID 列表。ID 写错时安装程序会直接拒绝启动，不会破坏系统。',
+        'Download the ODT from Microsoft (it is a small': '从微软下载 ODT（一个很小的',
+        'plus samples), then drop a': '外加示例），然后把',
+        'next to it.': '放在同一目录。',
+        'The first command fills a local': '第一条命令把安装文件下载到本地',
+        'folder with the installer (a few GB). The second installs from it, silently and without a browser.':
+            '目录（几个 GB）。第二条从本地安装，静默完成，不需要浏览器。',
+        'If you do not want to write XML, the MASSGRAVE project publishes pre-built click-to-run images for every edition and language: pick the edition, copy the address, run it.':
+            '不想写 XML 也可以：MASSGRAVE 为每个版本和语言提供现成的 C2R 镜像，选好版本、复制地址、直接运行。',
+        'Office C2R links': 'Office C2R 镜像链接',
+        '— one installer per edition and language, hosted by Microsoft.': '—— 每个版本与语言一个安装包，由微软托管。',
+        'Custom C2R builder': '自定义 C2R 生成器',
+        '— tick the apps you want, get a trimmed installer.': '—— 勾选需要的组件，生成精简安装包。',
+        'Office for Mac': 'Mac 版 Office',
+        '— the macOS route, which uses a different installer entirely.': '—— macOS 路线，使用完全不同的安装包。',
+        'These are catalogue pages, not downloads we host. The files themselves always come from Microsoft’s own CDN.':
+            '这些是目录页，不是我们托管的下载；实际文件始终来自微软自己的 CDN。',
+        'A healthy install reports the edition, the channel and a licence status. If it says':
+            '安装正常时会显示版本、频道与授权状态。如果显示',
+        ', that is expected before activation — continue to the activation guide.':
+            '，这是激活前的正常状态——继续看激活指南。',
+        'Mixed installs are the usual cause of “something went wrong”: uninstall every old Office (MSI and C2R) before installing a new line.':
+            '混装是「something went wrong」最常见的原因：装新版本前先彻底卸载旧 Office（MSI 与 C2R 都算）。',
+        'The installer needs a stable connection and 5–10 GB free. Running it twice in parallel corrupts the installation.':
+            '安装需要稳定网络与 5–10 GB 空间；同时运行两次会损坏安装。',
+        'Office 365 and the perpetual editions can coexist only as separate channels — do not mix retail and volume ids in one configuration.':
+            'Office 365 与永久版只能以不同频道共存——不要在同一份配置里混用零售版与批量版 ID。',
+        'After a successful install, Office updates itself. Activation is covered on the':
+            '安装成功后 Office 会自行更新。激活请见',
+        'Installer catalogue links point at': '安装目录链接指向',
+        '; the installers themselves are Microsoft’s.': '；安装包本身属于微软。',
+        // activation
+        ', open it, and paste this line — then press Enter.': '，打开它，粘贴下面这行命令，然后回车。',
+        'downloads the script,': '负责下载脚本，',
+        'runs it in memory. Nothing is saved to disk, and an elevated prompt is not required for most options.':
+            '在内存中执行。不会写入磁盘，大多数选项也不需要管理员权限。',
+        'The script shows a numbered list. Type the number next to the method you want and press Enter.':
+            '脚本会列出编号菜单。输入目标方法前面的数字并回车即可。',
+        'Menu wording can change between releases. Look for': '菜单措辞会随版本变化，认准',
+        'for Windows and': '（Windows）与',
+        'for Office — the letters matter more than the number.': '（Office）——名字比编号更可靠。',
+        'Locks the licence to the machine’s hardware ID. Survives reinstalls and updates; stays permanent as long as the motherboard does not change.':
+            '把授权绑定到本机硬件 ID。重装与更新都不会失效；只要不更换主板就是永久的。',
+        'Best for: Windows 10 / 11 · permanent': '适合：Windows 10 / 11 · 永久',
+        'Patches the local activation store offline. Works across Windows 7–11 and Server without contacting Microsoft.':
+            '离线修补本地激活存储。支持 Windows 7–11 与 Server，全程不联网。',
+        'Best for: offline machines · permanent': '适合：离线机器 · 永久',
+        'Extends the KMS grace period to 2038. No background service, no renewal, but it is not truly permanent.':
+            '把 KMS 宽限期延长到 2038 年。没有后台服务、无需续期，但并非真正永久。',
+        'Best for: Windows 10 / 11 / Server · until 2038': '适合：Windows 10 / 11 / Server · 到 2038 年',
+        'Reaches a KMS server and renews every 180 days through a scheduled task. The most compatible option for Server.':
+            '连接 KMS 服务器，并由计划任务每 180 天续期。对 Server 兼容性最好。',
+        'Best for: Server · renewable 180 days': '适合：Server · 180 天续期',
+        'Hooks the Office activation check on the machine instead of editing licence files. Permanent, and it never contacts a licence server.':
+            '在本机钩住 Office 的激活检查，而不修改授权文件。永久有效，且不连接任何授权服务器。',
+        'Best for: Office 2013–2024 / 365 (click-to-run) · permanent': '适合：Office 2013–2024 / 365（C2R）· 永久',
+        'The same 180-day KMS route used for Windows, applied to Office. A scheduled task renews it in the background.':
+            '与 Windows 相同的 180 天 KMS 路线，应用于 Office，由计划任务在后台续期。',
+        'Best for: Office (C2R) · renewable 180 days': '适合：Office（C2R）· 180 天续期',
+        'build. MSI installs and the Mac version are not covered — see the source page for those.':
+            '版本。MSI 安装与 Mac 版不适用——请查看来源页。',
+        'Windows shows “permanently activated” (or the expiry date). For Office, open any app →':
+            'Windows 会显示「已永久激活」（或到期日期）。Office 则打开任意应用 →',
+        '→ the licence line should read': '，授权信息应显示',
+        '; option 6 in the menu reports both.': '；菜单第 6 项会同时报告两者的状态。',
+        'and is open source; the project’s source is on GitHub. Only run it from the official':
+            '开源，源码在 GitHub。请只从官方地址运行',
+        'address — reposted copies are not trustworthy.': '——转载的副本不可信。',
+        'It is not affiliated with Microsoft. Activation outside a valid licence breaks the Microsoft terms of service; this page explains the tool, it does not condone misuse.':
+            '它与微软无关。在无有效授权的情况下激活违反微软服务条款；本页只解释工具，不鼓励滥用。',
+        'Nothing is installed permanently: the script downloads, runs in memory and cleans up. HWID and Ohook survive updates; KMS methods depend on the scheduled task.':
+            '不会永久安装任何东西：脚本下载后在内存中运行并自行清理。HWID 与 Ohook 能经受更新，KMS 方式依赖计划任务。',
+        'Blocked by antivirus? That is a false positive on the downloader; check the source page’s troubleshooting section before disabling anything.':
+            '被杀软拦截？这是对下载器的误报；关闭任何防护前先看来源页的故障排查。',
+        'Method and script: massgrave.dev · this page is an independent explanation':
+            '方法与脚本：massgrave.dev · 本页为独立说明',
+        'Activation explained in our own words, based on the guides at': '激活内容由我们自行撰写，参考',
+        'activation · windows & office': '激活 · Windows 与 Office',
+        'office · download & install': 'Office · 下载与安装',
         // office
         'A clean Office install': '干净的 Office 安装',
         'before you activate it.': '在激活之前。',
