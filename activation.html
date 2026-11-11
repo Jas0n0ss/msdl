@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-    <meta name="description"
-        content="Windows and Office activation methods, summarised and screenshotted from massgrave.dev, in one calm index.">
-
+    <meta name="description" content="How to activate Windows and Office with the Microsoft Activation Scripts one-line command, explained step by step.">
     <meta property="og:site_name" content="MSDL">
     <meta property="og:title" content="Activation — MSDL">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Windows and Office activation methods from massgrave.dev, categorised.">
-
+    <meta property="og:description" content="Activate Windows and Office with one PowerShell command, explained step by step.">
     <title>Activation — MSDL</title>
-
     <script>
         try {
-            var storedTheme = localStorage.getItem('msdl-theme');
-            document.documentElement.dataset.theme =
-                storedTheme === 'light' || storedTheme === 'dark'
-                    ? storedTheme
-                    : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        } catch (error) { }
+            var t = localStorage.getItem('msdl-theme');
+            document.documentElement.dataset.theme = t === 'light' || t === 'dark' ? t : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) { }
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('theme-toggle')?.addEventListener('click', function () {
+                var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+                document.documentElement.dataset.theme = next;
+                try { localStorage.setItem('msdl-theme', next); } catch (e) { }
+            });
+            document.querySelectorAll('[data-copy]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var text = button.getAttribute('data-copy');
+                    var done = function () {
+                        var old = button.textContent;
+                        button.textContent = 'Copied';
+                        setTimeout(function () { button.textContent = old; }, 1400);
+                    };
+                    navigator.clipboard ? navigator.clipboard.writeText(text).then(done) : done();
+                });
+            });
+        });
     </script>
-
     <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/activation.js"></script>
 </head>
-
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
     <header class="site-header">
         <div class="shell header-inner">
             <a class="brand" href="index.html" aria-label="MSDL — all products">
                 <svg class="brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4"/></svg>
                 <span class="brand-word">MSDL</span>
             </a>
-
             <nav class="header-nav" aria-label="Primary">
                 <a class="nav-link" href="index.html">Catalog</a>
                 <a class="nav-link" href="chocolatey.html">Chocolatey</a>
                 <a class="nav-link" href="activation.html" aria-current="page">Activation</a>
-                <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">
-                    <span class="nav-link-text">Source</span>
-                </a>
+                <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener"><span class="nav-link-text">Source</span></a>
                 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
-                    <svg class="icon theme-icon-light" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
-                        <circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
-                        <path d="M10 2v1.8M10 16.2V18M18 10h-1.8M3.8 10H2M15.7 4.3l-1.3 1.3M5.6 14.4l-1.3 1.3M15.7 15.7l-1.3-1.3M5.6 5.6 4.3 4.3"
-                            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                    <svg class="icon theme-icon-dark" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
-                        <path d="M16.2 12.3A6.6 6.6 0 0 1 7.7 3.8a6.6 6.6 0 1 0 8.5 8.5Z" fill="none"
-                            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
-                    </svg>
+                    <svg class="icon theme-icon-light" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2v1.8M10 16.2V18M18 10h-1.8M3.8 10H2M15.7 4.3l-1.3 1.3M5.6 14.4l-1.3 1.3M15.7 15.7l-1.3-1.3M5.6 5.6 4.3 4.3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    <svg class="icon theme-icon-dark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><path d="M16.2 12.3A6.6 6.6 0 0 1 7.7 3.8a6.6 6.6 0 1 0 8.5 8.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
                 </button>
             </nav>
         </div>
@@ -68,31 +64,97 @@
         <section class="hero shell" aria-labelledby="hero-title">
             <div class="hero-copy hero-copy-wide">
                 <p class="eyebrow"><span class="eyebrow-index">03</span><span>Activation</span></p>
-                <h1 class="hero-title" id="hero-title">
-                    Activate Windows and Office
-                    <span class="hero-dim">without the guesswork.</span>
-                </h1>
+                <h1 class="hero-title" id="hero-title">One command activates
+                    <span class="hero-dim">Windows and Office.</span></h1>
                 <p class="lede">
-                    The methods below are summarised from
-                    <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>,
-                    with a screenshot of each official guide. Read the source page before running anything —
-                    it is maintained upstream, this page is only an index.
+                    Microsoft Activation Scripts (MAS) is a small open-source script that talks to
+                    Microsoft’s own activation services for you. You run one line in PowerShell, pick
+                    what you want from a menu, and the script does the rest — no files left behind,
+                    no permanent service running.
                 </p>
             </div>
         </section>
 
-        <div class="act shell" id="act-body" aria-busy="true"></div>
-
-        <section class="choco shell">
+        <section class="choco shell" aria-labelledby="cmd-title">
             <div class="panel">
-                <h2 class="panel-title">Credit</h2>
-                <p class="panel-note">
-                    Activation guides, instructions and screenshots belong to the
-                    <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>
-                    contributors and the Microsoft Activation Scripts project. MSDL is not affiliated with
-                    Microsoft or with them; the guides are reproduced here as a convenience index.
+                <div class="panel-head">
+                    <div>
+                        <h2 class="panel-title" id="cmd-title">1 · Run the command</h2>
+                        <p class="panel-note">Press <kbd class="key">Win</kbd>, type <strong>PowerShell</strong>, open it, and paste this line — then press Enter.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <code id="cmd">irm https://get.activated.win | iex</code>
+                    <button class="copy copy-lg" type="button" data-copy="irm https://get.activated.win | iex" aria-label="Copy the activation command">Copy</button>
+                </div>
+                <p class="note">
+                    <span><code>irm</code> downloads the script, <code>iex</code> runs it in memory. Nothing is saved to disk, and an elevated prompt is not required for most options.</span>
                 </p>
-                <p class="choco-meta mono" id="act-stamp"></p>
+            </div>
+        </section>
+
+        <section class="choco shell" aria-labelledby="menu-title">
+            <div class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2 class="panel-title" id="menu-title">2 · Pick from the menu</h2>
+                        <p class="panel-note">The script shows a numbered list. Type the number next to the method you want and press Enter.</p>
+                    </div>
+                </div>
+                <div class="term" role="img" aria-label="Example of the activation menu">
+                    <div class="term-bar"><span></span><span></span><span></span><em>PowerShell</em></div>
+<pre class="term-body">Microsoft Activation Scripts
+--------------------------------------------------------------
+  [1] HWID          Windows 10 / 11                  Permanent
+  [2] Ohook         Office                           Permanent
+  [3] TSforge       Windows / Office                 Permanent
+  [4] KMS38         Windows 10 / 11 / Server         Until 2038
+  [5] Online KMS    Windows / Office                 180 days
+  [6] Check activation status
+--------------------------------------------------------------
+  Choice:</pre>
+                </div>
+                <p class="panel-note">Menu wording can change between releases. Look for <strong>HWID</strong> for Windows and <strong>Ohook</strong> for Office — the letters matter more than the number.</p>
+            </div>
+        </section>
+
+        <section class="choco shell" aria-labelledby="win-title">
+            <h2 class="act-heading" id="win-title">Windows — which method?</h2>
+            <div class="act-grid">
+                <article class="panel act-panel"><h3 class="act-title">HWID</h3><p class="act-blurb">Locks the licence to the machine’s hardware ID. Survives reinstalls and updates; stays permanent as long as the motherboard does not change.</p><p class="act-tag">Best for: Windows 10 / 11 · permanent</p></article>
+                <article class="panel act-panel"><h3 class="act-title">TSforge</h3><p class="act-blurb">Patches the local activation store offline. Works across Windows 7–11 and Server without contacting Microsoft.</p><p class="act-tag">Best for: offline machines · permanent</p></article>
+                <article class="panel act-panel"><h3 class="act-title">KMS38</h3><p class="act-blurb">Extends the KMS grace period to 2038. No background service, no renewal, but it is not truly permanent.</p><p class="act-tag">Best for: Windows 10 / 11 / Server · until 2038</p></article>
+                <article class="panel act-panel"><h3 class="act-title">Online KMS</h3><p class="act-blurb">Reaches a KMS server and renews every 180 days through a scheduled task. The most compatible option for Server.</p><p class="act-tag">Best for: Server · renewable 180 days</p></article>
+            </div>
+        </section>
+
+        <section class="choco shell" aria-labelledby="off-title">
+            <h2 class="act-heading" id="off-title">Office — which method?</h2>
+            <div class="act-grid">
+                <article class="panel act-panel"><h3 class="act-title">Ohook</h3><p class="act-blurb">Hooks the Office activation check on the machine instead of editing licence files. Permanent, and it never contacts a licence server.</p><p class="act-tag">Best for: Office 2013–2024 / 365 (click-to-run) · permanent</p></article>
+                <article class="panel act-panel"><h3 class="act-title">Online KMS</h3><p class="act-blurb">The same 180-day KMS route used for Windows, applied to Office. A scheduled task renews it in the background.</p><p class="act-tag">Best for: Office (C2R) · renewable 180 days</p></article>
+            </div>
+            <p class="note"><span>Office must be the <strong>click-to-run (C2R)</strong> build. MSI installs and the Mac version are not covered — see the source page for those.</span></p>
+        </section>
+
+        <section class="choco shell" aria-labelledby="check-title">
+            <div class="panel">
+                <h2 class="panel-title" id="check-title">3 · Confirm it worked</h2>
+                <div class="code-block"><code>slmgr /xpr</code><button class="copy copy-lg" type="button" data-copy="slmgr /xpr" aria-label="Copy the check command">Copy</button></div>
+                <p class="panel-note">Windows shows “permanently activated” (or the expiry date). For Office, open any app → <strong>Account</strong> → the licence line should read <strong>Product Activated</strong>; option 6 in the menu reports both.</p>
+            </div>
+        </section>
+
+        <section class="choco shell" aria-labelledby="note-title">
+            <div class="panel">
+                <h2 class="panel-title" id="note-title">Good to know</h2>
+                <ul class="act-list">
+                    <li>The script comes from <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a> and is open source; the project’s source is on GitHub. Only run it from the official <code>get.activated.win</code> address — reposted copies are not trustworthy.</li>
+                    <li>It is not affiliated with Microsoft. Activation outside a valid licence breaks the Microsoft terms of service; this page explains the tool, it does not condone misuse.</li>
+                    <li>Nothing is installed permanently: the script downloads, runs in memory and cleans up. HWID and Ohook survive updates; KMS methods depend on the scheduled task.</li>
+                    <li>Blocked by antivirus? That is a false positive on the downloader; check the source page’s troubleshooting section before disabling anything.</li>
+                </ul>
+                <p class="choco-meta mono">Method and script: massgrave.dev · this page is an independent explanation</p>
             </div>
         </section>
     </main>
@@ -100,10 +162,10 @@
     <footer class="site-footer shell">
         <div class="footer-top">
             <div class="footer-brand"><svg class="brand-mark" aria-hidden="true" focusable="false" viewBox="0 0 20 20"><rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4"/></svg><span class="brand-word">MSDL</span></div>
-            <p class="footer-note">An unofficial index. Activation content is sourced from massgrave.dev.</p>
+            <p class="footer-note">Activation explained in our own words, based on the guides at <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>.</p>
         </div>
         <div class="footer-bottom">
-            <p class="footer-stamp mono" id="footer-stamp">data/activation.json</p>
+            <p class="footer-stamp mono">activation · windows &amp; office</p>
             <div class="footer-links">
                 <a href="index.html">Catalog</a>
                 <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">massgrave.dev</a>
@@ -112,5 +174,4 @@
         </div>
     </footer>
 </body>
-
 </html>
