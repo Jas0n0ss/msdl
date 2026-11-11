@@ -16,6 +16,8 @@
 
     const el = {};
 
+    const tr = (text) => window.msdlI18n?.translate(text) ?? text;
+
     const escapeHtml = (value) =>
         String(value ?? '').replace(/[&<>"']/g, (character) => ({
             '&': '&amp;',
@@ -53,7 +55,7 @@
 
             el.installCommand.textContent = data.installCommand;
             if (el.catalogSize) {
-                el.catalogSize.textContent = `${data.packages.length} packages · updated ${updated}`;
+                el.catalogSize.textContent = `${data.packages.length} ${tr('packages')} · ${tr('updated')} ${updated}`;
             }
             if (el.footerStamp) {
                 el.footerStamp.textContent = `data/chocolatey.json · ${data.packages.length} packages · ${updated}`;
@@ -205,7 +207,7 @@
         el.count.textContent =
             state.selected.length === 0
                 ? ''
-                : `${String(state.selected.length).padStart(2, '0')} selected`;
+                : `${String(state.selected.length).padStart(2, '0')} ${tr('selected')}`;
         if (command) el.output.textContent = command;
     }
 

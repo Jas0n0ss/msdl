@@ -46,6 +46,8 @@
     const icon = (name, className = '') =>
         `<svg class="icon${className ? ` ${className}` : ''}" aria-hidden="true" focusable="false" viewBox="0 0 20 20">${ICON_PATHS[name] ?? ''}</svg>`;
 
+    const tr = (text) => window.msdlI18n?.translate(text) ?? text;
+
     const escapeHtml = (value) =>
         String(value ?? '').replace(/[&<>"']/g, (character) => ({
             '&': '&amp;',
@@ -242,7 +244,7 @@
         }
 
         if (el.catalogUpdated && valid) {
-            el.catalogUpdated.textContent = `synced ${relativeTime(updated)}`;
+            el.catalogUpdated.textContent = `${tr('synced')} ${relativeTime(updated)}`;
             el.catalogUpdated.title = utcStamp(updated);
         }
 
@@ -284,8 +286,8 @@
         const isFiltered = state.query.trim() !== '' || state.family !== 'all';
 
         el.resultCount.textContent = isFiltered
-            ? `${pad2(products.length)} / ${pad2(total)} entries`
-            : `${pad2(total)} entries`;
+            ? `${pad2(products.length)} / ${pad2(total)} ${tr('entries')}`
+            : `${pad2(total)} ${tr('entries')}`;
 
         el.searchClear.hidden = state.query === '';
 

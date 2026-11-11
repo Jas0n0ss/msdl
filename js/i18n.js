@@ -82,7 +82,7 @@
         'Chat & meetings': '聊天与会议', 'Media & graphics': '影音与图形', 'Documents': '文档',
         'Utilities': '实用工具', 'Developer tools': '开发工具', 'Runtimes & drivers': '运行库与驱动',
         'Gaming': '游戏', 'Browsers': '浏览器', 'All': '全部', 'selected': '已选',
-        'packages': '个软件包', 'updated': '更新于', 'Clear': '清空', 'Copy command': '复制命令',
+        'packages': '个软件包', 'updated': '更新于', 'synced': '同步于', 'Clear': '清空', 'Copy command': '复制命令',
         'Copy': '复制', 'Troubleshoot': '故障排查',
         // office
         'Microsoft 365': 'Microsoft 365',
@@ -291,5 +291,6 @@
         observer.observe(document.body, { childList: true, subtree: true, characterData: true });
     });
 
-    window.msdlI18n = { apply, set, get lang() { return lang; } };
+    const translate = (text) => (lang === 'zh' ? (DICT.zh[norm(text)] ?? String(text)) : String(text));
+    window.msdlI18n = { apply, set, translate, get lang() { return lang; } };
 })();
