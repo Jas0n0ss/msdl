@@ -13,7 +13,10 @@
 
 import puppeteer from '@cloudflare/puppeteer';
 
-const PAGE_URL = 'https://www.microsoft.com/en-us/software-download/windows11';
+const PAGES = {
+    'windows-11': 'https://www.microsoft.com/en-us/software-download/windows11',
+    'windows-10': 'https://www.microsoft.com/en-us/software-download/windows10ISO',
+};
 const CONNECTOR = 'https://www.microsoft.com/software-download-connector/api';
 const PROFILE = '606624d44113';
 const LOCALE = 'en-US';
@@ -70,14 +73,16 @@ const isRateLimited = (error) => /429|rate limit/i.test(error?.message ?? '');
  * flow in the page is what makes Sentinel accept the requests; a bare fetch
  * with a fresh session id is rejected.
  */
-async function drivePage(env, { productId, skuId }) {
+async function drivePage(env, { productId, skuId, family }) {
+    const pageUrl = PAGES[family ?? 'windows-11'];
+    if (!pageUrl) throw new Error(`Microsoft does not publish this family through the connector (${family})`);
     const attempt = async (retries) => {
         let browser;
         try {
             browser = await getBrowser(env);
             const page = await browser.newPage();
 
-            await page.goto(PAGE_URL, { waitUntil: 'domcontentloaded', timeout: 45_000 });
+            await page.goto(pageUrl, { waitUntil: 'domcontentloaded', timeout: 45_000 });
             await new Promise((resolve) => setTimeout(resolve, 1200));
 
             await page.evaluate(() => {
@@ -91,7 +96,7 @@ async function drivePage(env, { productId, skuId }) {
             const editionOk = await page.evaluate((pid) => {
                 const select = document.querySelector('#product-edition');
                 if (!select) return false;
-                const option = [...select.options].find((o) => String(o.value) === String(pid)) ?? select.options[1];
+                const option = [...select.options].find((o) => String(o.value) === String(pid));
                 if (!option) return false;
                 select.value = option.value;
                 select.dispatchEvent(new Event('change', { bubbles: true }));
@@ -158,13 +163,14 @@ export default {
 
             if (url.pathname === '/skuinfo') {
                 const productId = url.searchParams.get('product_id');
+                const family = url.searchParams.get('family') ?? 'windows-11';
                 if (!productId) return failure('product_id is required', 400);
 
-                const key = `sku:${productId}`;
+                const key = `sku:${family}:${productId}`;
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { languages } = await drivePage(env, { productId });
+                const { languages } = await drivePage(env, { productId, family });
                 const payload = {
                     ValidationContainer: { Errors: [] },
                     Skus: languages.map((entry) => {
@@ -184,13 +190,14 @@ export default {
             if (url.pathname === '/proxy' || url.pathname === '/links') {
                 const productId = url.searchParams.get('product_id');
                 const skuId = url.searchParams.get('sku_id') ?? url.searchParams.get('sku');
+                const family = url.searchParams.get('family') ?? 'windows-11';
                 if (!productId && !skuId) return failure('product_id or sku_id is required', 400);
 
-                const key = `link:${productId}:${skuId}`;
+                const key = `link:${family}:${productId}:${skuId}`;
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { links } = await drivePage(env, { productId, skuId });
+                const { links } = await drivePage(env, { productId, skuId, family });
                 const payload = {
                     ProductDownloadOptions: links.map((link) => ({
                         Name: link.name,

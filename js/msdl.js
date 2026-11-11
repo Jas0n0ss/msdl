@@ -718,7 +718,7 @@
         renderDetailBody();
 
         try {
-            const url = `${API_BASE}/proxy?product_id=${encodeURIComponent(product.id)}&sku_id=${encodeURIComponent(skuId)}`;
+            const url = `${API_BASE}/proxy?product_id=${encodeURIComponent(product.id)}&sku_id=${encodeURIComponent(skuId)}&family=${encodeURIComponent(product.family)}`;
             const response = await fetch(url);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
