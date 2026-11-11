@@ -7,7 +7,10 @@
 (() => {
     'use strict';
 
-    const API_BASE = 'https://api.gravesoft.dev/msdl';
+    const API_BASE = (
+        document.querySelector('meta[name="msdl-api"]')?.getAttribute('content') ||
+        'https://api.gravesoft.dev/msdl'
+    ).replace(/\/+$/, '');
     const MICROSOFT_DOWNLOAD_PAGE = 'https://www.microsoft.com/software-download';
     const THEME_KEY = 'msdl-theme';
     const STALE_AFTER_MS = 36 * 60 * 60 * 1000;
@@ -341,65 +344,72 @@
 
         const families = state.data.families ?? [];
         const latest = latestIds();
-        let rowIndex = 0;
 
-        const groups = families
+        const options = families
             .map((family) => {
                 const items = products.filter((product) => product.family === family.id);
                 if (items.length === 0) return '';
 
                 const rows = items
                     .map((product) => {
-                        rowIndex += 1;
                         const { title } = splitName(product.name);
                         const build = buildOf(product);
                         const arch = archLabel(product.arch);
-                        const isLatest = latest.has(product.id);
+                        const meta = [build, arch].filter(Boolean).join(' · ');
+                        const suffix = meta ? ` — ${meta}` : '';
 
-                        return `
-                            <li>
-                                <a class="row" href="#${encodeURIComponent(product.id)}" data-product="${escapeHtml(product.id)}">
-                                    <span class="ix">${pad2(rowIndex)}</span>
-                                    <span class="name">${escapeHtml(title)}</span>
-                                    <span class="facts">
-                                        ${build ? `<span class="fact">${escapeHtml(build)}</span>` : ''}
-                                        ${arch ? `<span class="fact">${escapeHtml(arch)}</span>` : ''}
-                                        ${isLatest ? '<span class="flag">Latest</span>' : ''}
-                                    </span>
-                                    ${icon('arrow-right', 'go')}
-                                </a>
-                            </li>`;
+                        return `<option value="${escapeHtml(product.id)}">${escapeHtml(title)}${escapeHtml(suffix)}${
+                            latest.has(product.id) ? ' · latest' : ''
+                        }</option>`;
                     })
                     .join('');
 
-                return `
-                    <section class="group" aria-labelledby="group-${escapeHtml(family.id)}">
-                        <div class="group-head">
-                            <h3 class="group-title" id="group-${escapeHtml(family.id)}">
-                                ${escapeHtml(family.label)}
-                            </h2>
-                            <span class="group-count">${pad2(items.length)} ${items.length === 1 ? 'entry' : 'entries'}</span>
-                        </div>
-                        <ul class="rows">${rows}</ul>
-                    </section>`;
+                return `<optgroup label="${escapeHtml(family.label)}">${rows}</optgroup>`;
             })
             .join('');
 
-        el.catalogBody.innerHTML = groups;
+        // One quick entry per family, so the common cases stay one click away.
+        const quick = families
+            .filter((family) => family.id !== 'windows-7')
+            .map((family) => state.data.products.find((product) => product.family === family.id))
+            .filter(Boolean);
+
+        el.catalogBody.innerHTML = `
+            <div class="picker">
+                <div class="picker-main">
+                    <label class="picker-label" for="product-select">Choose a product</label>
+                    <div class="select-wrap">
+                        <select class="select" id="product-select">
+                            <option value="" selected>Select a release…</option>
+                            ${options}
+                        </select>
+                        <svg class="select-chevron" viewBox="0 0 20 20" aria-hidden="true" focusable="false">${ICON_PATHS['chevron-down'] ?? ''}</svg>
+                    </div>
+                </div>
+                <div class="quick-picks">
+                    <span class="picker-label">Jump to</span>
+                    <div class="quick-pick-row">
+                        ${quick
+                            .map((product) => {
+                                const { title } = splitName(product.name);
+                                const build = buildOf(product);
+                                return `<a class="quick-pick" href="#${encodeURIComponent(product.id)}">${escapeHtml(title)}${
+                                    build ? `<span>${escapeHtml(build)}</span>` : ''
+                                }</a>`;
+                            })
+                            .join('')}
+                    </div>
+                </div>
+            </div>`;
     }
 
-    function skeletonCatalog(groups) {
-        const rows = Array.from({ length: 4 }, () => `
-            <div class="skeleton-row">
-                <div class="skeleton skeleton-line medium"></div>
-                <div class="skeleton skeleton-line short"></div>
-            </div>`).join('');
-
-        return Array.from({ length: groups }, () => `
-            <section class="group">
-                <div class="group-head"><div class="skeleton skeleton-line" style="width:96px;height:11px"></div></div>
-                <div class="rows">${rows}</div>
-            </section>`).join('');
+    function skeletonCatalog() {
+        return `
+            <div class="picker">
+                <div class="skeleton skeleton-line" style="width:120px;height:10px;margin-bottom:10px"></div>
+                <div class="skeleton" style="height:54px;border-radius:999px"></div>
+                <div class="skeleton skeleton-line" style="width:46%;height:10px;margin-top:22px"></div>
+            </div>`;
     }
 
     function renderCatalogError(error) {
@@ -465,6 +475,8 @@
         el.detail.innerHTML = '';
         el.catalog.hidden = false;
         el.hero.hidden = false;
+        const select = document.getElementById('product-select');
+        if (select) select.value = '';
         document.title = 'MSDL — Microsoft Software Download Listing';
 
         if (focus) {
@@ -774,7 +786,7 @@
                 ? {
                       title: 'Microsoft blocked the request',
                       message:
-                          'Microsoft’s download service rejected this session. This is usually temporary — try again in a moment, or download from Microsoft directly.',
+                          'Microsoft’s bot check rejected this session (it rate-limits link generation). Wait a minute and retry, or download from Microsoft directly. Deploying the bundled proxy makes this reliable.',
                   }
                 : {
                       title: 'Couldn’t generate download links',
@@ -887,26 +899,6 @@
         el.search.focus();
     }
 
-    /** Rows that are currently visible, in reading order. */
-    const rowLinks = () => [...el.catalogBody.querySelectorAll('.row:not([hidden])')];
-
-    function moveFocus(direction) {
-        const rows = rowLinks();
-        if (rows.length === 0) return;
-
-        const active = document.activeElement;
-        const index = rows.indexOf(active);
-
-        if (index === -1) {
-            rows[0].focus();
-            return;
-        }
-
-        const next = rows[Math.min(Math.max(index + direction, 0), rows.length - 1)];
-        next.focus();
-        next.scrollIntoView({ block: 'nearest' });
-    }
-
     function focusSearch() {
         if (!el.detail.hidden) closeProduct({ focus: false });
         el.search.focus({ preventScroll: true });
@@ -925,6 +917,12 @@
                 filter.setAttribute('aria-pressed', String(filter === button));
             });
             renderCatalog();
+        });
+
+        el.catalogBody.addEventListener('change', (event) => {
+            if (event.target.id === 'product-select' && event.target.value) {
+                navigateToProduct(event.target.value);
+            }
         });
 
         el.catalogBody.addEventListener('click', (event) => {
@@ -1010,11 +1008,11 @@
                 return;
             }
             if (event.key === 'ArrowDown') {
-                const rows = rowLinks();
-                if (rows.length > 0) {
+                const select = document.getElementById('product-select');
+                if (select) {
                     event.preventDefault();
                     event.stopPropagation();
-                    rows[0].focus();
+                    select.focus();
                 }
             }
         });
@@ -1041,14 +1039,11 @@
                 return;
             }
 
-            if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && !typing && el.detail.hidden) {
-                const rows = rowLinks();
-                if (rows.includes(document.activeElement)) {
+            if (event.key === 'ArrowDown' && !typing && el.detail.hidden && document.activeElement === el.search) {
+                const select = document.getElementById('product-select');
+                if (select) {
                     event.preventDefault();
-                    moveFocus(event.key === 'ArrowDown' ? 1 : -1);
-                } else if (event.key === 'ArrowDown' && document.activeElement === el.search) {
-                    event.preventDefault();
-                    moveFocus(1);
+                    select.focus();
                 }
                 return;
             }

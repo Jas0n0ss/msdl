@@ -1,0 +1,1133 @@
+{
+  "updated": "2026-11-11T08:51:42.895Z",
+  "source": "community.chocolatey.org",
+  "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
+  "categories": [
+    {
+      "id": "browsers",
+      "label": "Browsers"
+    },
+    {
+      "id": "communication",
+      "label": "Chat & meetings"
+    },
+    {
+      "id": "media",
+      "label": "Media & graphics"
+    },
+    {
+      "id": "office",
+      "label": "Documents"
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities"
+    },
+    {
+      "id": "developer",
+      "label": "Developer tools"
+    },
+    {
+      "id": "runtimes",
+      "label": "Runtimes & drivers"
+    },
+    {
+      "id": "gaming",
+      "label": "Gaming"
+    }
+  ],
+  "packages": [
+    {
+      "id": "googlechrome",
+      "name": "Google Chrome",
+      "summary": "",
+      "category": "browsers",
+      "downloads": 394271739
+    },
+    {
+      "id": "firefox",
+      "name": "Mozilla Firefox",
+      "summary": "Bringing together all kinds of awesomeness to make browsing better for you",
+      "category": "browsers",
+      "downloads": 111722252
+    },
+    {
+      "id": "microsoft-edge",
+      "name": "Microsoft Edge",
+      "summary": "Microsoft Edge browser, based on the Chromium open source browser.",
+      "category": "browsers",
+      "downloads": 102701724
+    },
+    {
+      "id": "brave",
+      "name": "Brave Browser",
+      "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
+      "category": "browsers",
+      "downloads": 4922346
+    },
+    {
+      "id": "chromium",
+      "name": "Chromium",
+      "summary": "Chromium",
+      "category": "browsers",
+      "downloads": 3713571
+    },
+    {
+      "id": "opera",
+      "name": "Opera",
+      "summary": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer.",
+      "category": "browsers",
+      "downloads": 1845508
+    },
+    {
+      "id": "librewolf",
+      "name": "LibreWolf",
+      "summary": "A fork of Firefox, focused on privacy, security and freedom.",
+      "category": "browsers",
+      "downloads": 466987
+    },
+    {
+      "id": "zoom",
+      "name": "Zoom Client for Meetings",
+      "summary": "Zoom unifies cloud video conferencing, simple online meetings, group messaging, and a software-defined conference room solution into one easy-to-use platform.",
+      "category": "communication",
+      "downloads": 64689148
+    },
+    {
+      "id": "microsoft-teams",
+      "name": "Microsoft Teams Classic Desktop App",
+      "summary": "Microsoft Teams helps your team work better together. It's one app that brings your team's conversations, meetings, files and notes together into a single place for open and seamless collaboration.",
+      "category": "communication",
+      "downloads": 20229643
+    },
+    {
+      "id": "slack",
+      "name": "Slack for Windows",
+      "summary": "Slack for Windows",
+      "category": "communication",
+      "downloads": 9880139
+    },
+    {
+      "id": "skype",
+      "name": "Skype",
+      "summary": "Skype - VOIP",
+      "category": "communication",
+      "downloads": 7458198
+    },
+    {
+      "id": "thunderbird",
+      "name": "Thunderbird (Release)",
+      "summary": "A free email client from Mozilla",
+      "category": "communication",
+      "downloads": 5196796
+    },
+    {
+      "id": "signal",
+      "name": "Signal (Desktop)",
+      "summary": "Fast, simple, secure. Privacy that fits in your pocket",
+      "category": "communication",
+      "downloads": 3399366
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "summary": "Cloud-based synchronized messaging app with a focus on speed and security",
+      "category": "communication",
+      "downloads": 949002
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
+      "category": "communication",
+      "downloads": 884971
+    },
+    {
+      "id": "hexchat",
+      "name": "HexChat IRC client",
+      "summary": "HexChat is an IRC client based on XChat, but unlike XChat it’s completely free for both Windows and Unix-like systems.",
+      "category": "communication",
+      "downloads": 60428
+    },
+    {
+      "id": "vlc",
+      "name": "VLC media player",
+      "summary": "VLC Media Player",
+      "category": "media",
+      "downloads": 22558095
+    },
+    {
+      "id": "spotify",
+      "name": "Spotify",
+      "summary": "Spotify is a new way to listen to music",
+      "category": "media",
+      "downloads": 5459472
+    },
+    {
+      "id": "gimp",
+      "name": "GIMP",
+      "summary": "GNU Image Manipulation Program",
+      "category": "media",
+      "downloads": 5378263
+    },
+    {
+      "id": "ffmpeg",
+      "name": "FFmpeg",
+      "summary": "FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video. It includes libavcodec – the leading audio/video codec library.",
+      "category": "media",
+      "downloads": 3390570
+    },
+    {
+      "id": "audacity",
+      "name": "Audacity",
+      "summary": "Audacity is free, open source, cross-platform software for recording and editing sounds.",
+      "category": "media",
+      "downloads": 2791170
+    },
+    {
+      "id": "blender",
+      "name": "Blender",
+      "summary": "Blender is 3D creation for everyone, free to use for any purpose.",
+      "category": "media",
+      "downloads": 1365833
+    },
+    {
+      "id": "obs-studio",
+      "name": "OBS Studio",
+      "summary": "Free and open source software for video recording and live streaming.",
+      "category": "media",
+      "downloads": 808998
+    },
+    {
+      "id": "imagemagick",
+      "name": "ImageMagick",
+      "summary": "ImageMagick® is a software suite to create, edit, compose, or convert bitmap images",
+      "category": "media",
+      "downloads": 801622
+    },
+    {
+      "id": "handbrake",
+      "name": "HandBrake",
+      "summary": "HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.",
+      "category": "media",
+      "downloads": 428858
+    },
+    {
+      "id": "foobar2000",
+      "name": "foobar2000",
+      "summary": "foobar2000 is an advanced freeware audio player.",
+      "category": "media",
+      "downloads": 412729
+    },
+    {
+      "id": "shotcut",
+      "name": "Shotcut",
+      "summary": "Shotcut is a free, open source, cross-platform video editor.",
+      "category": "media",
+      "downloads": 403093
+    },
+    {
+      "id": "krita",
+      "name": "Krita",
+      "summary": "Krita is a sketching and painting program designed for digital artists.",
+      "category": "media",
+      "downloads": 341781
+    },
+    {
+      "id": "mpv",
+      "name": "[Deprecated] mpv",
+      "summary": "a free, open source, and cross-platform media player",
+      "category": "media",
+      "downloads": 288375
+    },
+    {
+      "id": "potplayer",
+      "name": "PotPlayer",
+      "summary": "PotPlayer is a multimedia software player developed for the Microsoft Windows operating system by South Korean Internet company Kakao.",
+      "category": "media",
+      "downloads": 265836
+    },
+    {
+      "id": "kdenlive",
+      "name": "kdenlive (Install)",
+      "summary": "A powerful non-linear video editor",
+      "category": "media",
+      "downloads": 178487
+    },
+    {
+      "id": "kodi",
+      "name": "Kodi",
+      "summary": "Kodi is an award-winning free and open source (GPL) software media player and entertainment hub for digital media.",
+      "category": "media",
+      "downloads": 149805
+    },
+    {
+      "id": "adobereader",
+      "name": "Adobe Acrobat Reader DC",
+      "summary": "View, print, sign, and annotate PDF files.",
+      "category": "office",
+      "downloads": 694601137
+    },
+    {
+      "id": "notepadplusplus",
+      "name": "Notepad++",
+      "summary": "Notepad++ is a free (as in \"free speech\" and also as in \"free beer\") source code editor and Notepad replacement that supports several languages.",
+      "category": "office",
+      "downloads": 22032113
+    },
+    {
+      "id": "libreoffice-fresh",
+      "name": "LibreOffice Fresh",
+      "summary": "LibreOffice is the free power-packed Open Source personal productivity suite for Windows, Macintosh and Linux, that gives you six feature-rich applications for all your document production and data processing needs.",
+      "category": "office",
+      "downloads": 7394334
+    },
+    {
+      "id": "pdf24",
+      "name": "PDF24 Creator",
+      "summary": "A free and easy solution to many PDF problems",
+      "category": "office",
+      "downloads": 4372542
+    },
+    {
+      "id": "wps-office-free",
+      "name": "WPS Office Free",
+      "summary": "WPS Office Free is a free office productivity suite which is smaller and faster than most other office suites.",
+      "category": "office",
+      "downloads": 2815644
+    },
+    {
+      "id": "evernote",
+      "name": "Evernote",
+      "summary": "A cross-platform, freemium app designed for note taking, organizing, and archiving.",
+      "category": "office",
+      "downloads": 907652
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "summary": "Your connected workspace for wiki, docs and projects.",
+      "category": "office",
+      "downloads": 468682
+    },
+    {
+      "id": "sumatrapdf",
+      "name": "Sumatra PDF (Install)",
+      "summary": "Sumatra PDF is a PDF, ePub, MOBI, CHM, XPS, DjVu, CBZ, CBR reader for Windows",
+      "category": "office",
+      "downloads": 394348
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "summary": "Obsidian is a powerful knowledge base that works on top of a local folder of plain text Markdown files.",
+      "category": "office",
+      "downloads": 344435
+    },
+    {
+      "id": "onlyoffice",
+      "name": "ONLYOFFICE",
+      "summary": "ONLYOFFICE Desktop Editors is a free office suite that combines text, spreadsheet and presentation editors allowing to create, view and edit documents stored on your Windows/Linux PC or Mac without an Internet connection. It is fully compatible with Office Open XML formats: .docx, .xlsx, .pptx.",
+      "category": "office",
+      "downloads": 290466
+    },
+    {
+      "id": "typora",
+      "name": "Typora (Install)",
+      "summary": "Typora is a minimal markdown editor, providing new ways for reading and writing markdown.",
+      "category": "office",
+      "downloads": 120083
+    },
+    {
+      "id": "teamviewer",
+      "name": "Teamviewer (Install)",
+      "summary": "Empowering secure remote desktop access and support.",
+      "category": "utilities",
+      "downloads": 50535158
+    },
+    {
+      "id": "7zip",
+      "name": "7-Zip",
+      "summary": "7-Zip is a file archiver with a high compression ratio.",
+      "category": "utilities",
+      "downloads": 35669613
+    },
+    {
+      "id": "winrar",
+      "name": "WinRAR",
+      "summary": "A powerful archive manager",
+      "category": "utilities",
+      "downloads": 11721218
+    },
+    {
+      "id": "sysinternals",
+      "name": "Sysinternals",
+      "summary": "Sysinternals - utilities to help you manage, troubleshoot and diagnose your Windows systems and applications.",
+      "category": "utilities",
+      "downloads": 11193072
+    },
+    {
+      "id": "ccleaner",
+      "name": "CCleaner",
+      "summary": "The number-one tool for cleaning your Windows PC.",
+      "category": "utilities",
+      "downloads": 9006526
+    },
+    {
+      "id": "wireshark",
+      "name": "Wireshark",
+      "summary": "Wireshark",
+      "category": "utilities",
+      "downloads": 6613413
+    },
+    {
+      "id": "filezilla",
+      "name": "FileZilla",
+      "summary": "FileZilla – The free FTP solution",
+      "category": "utilities",
+      "downloads": 6388904
+    },
+    {
+      "id": "advanced-ip-scanner",
+      "name": "Advanced IP Scanner (Install)",
+      "summary": "Reliable and free network scanner to analyse LAN.",
+      "category": "utilities",
+      "downloads": 5839979
+    },
+    {
+      "id": "windirstat",
+      "name": "WinDirStat",
+      "summary": "WinDirStat is a disk usage statistics viewer and cleanup tool for Microsoft Windows",
+      "category": "utilities",
+      "downloads": 5583918
+    },
+    {
+      "id": "putty",
+      "name": "PuTTY",
+      "summary": "PuTTY is a free implementation of Telnet and SSH for Windows and Unix platforms, along with an xterm terminal emulator.",
+      "category": "utilities",
+      "downloads": 5267667
+    },
+    {
+      "id": "keepass",
+      "name": "Keepass 2.x",
+      "summary": "Lightweight and easy-to-use password manager.",
+      "category": "utilities",
+      "downloads": 4230089
+    },
+    {
+      "id": "greenshot",
+      "name": "Greenshot",
+      "summary": "Greenshot is a light-weight screenshot software tool for Windows.",
+      "category": "utilities",
+      "downloads": 4146947
+    },
+    {
+      "id": "powertoys",
+      "name": "PowerToys",
+      "summary": "Windows system utilities to maximize productivity",
+      "category": "utilities",
+      "downloads": 3989127
+    },
+    {
+      "id": "winscp",
+      "name": "WinSCP",
+      "summary": "Open source free SFTP client, SCP client, FTPS client and FTP client",
+      "category": "utilities",
+      "downloads": 3473305
+    },
+    {
+      "id": "bitwarden",
+      "name": "Bitwarden",
+      "summary": "A secure and free password manager for all of your devices.",
+      "category": "utilities",
+      "downloads": 2275309
+    },
+    {
+      "id": "crystaldiskinfo",
+      "name": "CrystalDiskInfo",
+      "summary": "CrystalDiskInfo is a HDD/SSD utility software which shows the health status much more clearly than similar tools.",
+      "category": "utilities",
+      "downloads": 2128108
+    },
+    {
+      "id": "anydesk",
+      "name": "AnyDesk",
+      "summary": "Remote Desktop Software",
+      "category": "utilities",
+      "downloads": 1870437
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "summary": "1Password - Have you ever forgotten a password?",
+      "category": "utilities",
+      "downloads": 1222940
+    },
+    {
+      "id": "nmap",
+      "name": "Nmap",
+      "summary": "",
+      "category": "utilities",
+      "downloads": 902652
+    },
+    {
+      "id": "rufus",
+      "name": "Rufus",
+      "summary": "Create bootable USB drives from Windows and Linux images",
+      "category": "utilities",
+      "downloads": 840102
+    },
+    {
+      "id": "revo-uninstaller",
+      "name": "Revo Uninstaller Free (Install)",
+      "summary": "Revo Uninstaller removes programs along with the leftover files, folders, and registry entries their uninstallers leave behind.",
+      "category": "utilities",
+      "downloads": 706330
+    },
+    {
+      "id": "cpu-z",
+      "name": "CPU-Z",
+      "summary": "System information software",
+      "category": "utilities",
+      "downloads": 670304
+    },
+    {
+      "id": "sharex",
+      "name": "ShareX (Install)",
+      "summary": "Screen capture, file sharing and productivity tool.",
+      "category": "utilities",
+      "downloads": 547573
+    },
+    {
+      "id": "hwinfo",
+      "name": "HWiNFO",
+      "summary": "Comprehensive Hardware Analysis, Monitoring and Reporting for Windows and DOS",
+      "category": "utilities",
+      "downloads": 449891
+    },
+    {
+      "id": "gpu-z",
+      "name": "GPU-Z (Portable)",
+      "summary": "GPU-Z - the Graphics Card Information Utility",
+      "category": "utilities",
+      "downloads": 365147
+    },
+    {
+      "id": "rustdesk",
+      "name": "RustDesk",
+      "summary": "Open source virtual / remote desktop infrastructure for everyone! The open source TeamViewer alternative. Display and control your PC and Android devices.",
+      "category": "utilities",
+      "downloads": 334139
+    },
+    {
+      "id": "bleachbit",
+      "name": "BleachBit",
+      "summary": "BleachBit cleans files to free disk space and to maintain privacy.",
+      "category": "utilities",
+      "downloads": 331956
+    },
+    {
+      "id": "veracrypt",
+      "name": "VeraCrypt",
+      "summary": "VeraCrypt",
+      "category": "utilities",
+      "downloads": 311082
+    },
+    {
+      "id": "ventoy",
+      "name": "Ventoy",
+      "summary": "Ventoy is an open source tool to create bootable USB drive for ISO files.",
+      "category": "utilities",
+      "downloads": 206497
+    },
+    {
+      "id": "quicklook",
+      "name": "QuickLook",
+      "summary": "Bring macOS “Quick Look” feature to Windows",
+      "category": "utilities",
+      "downloads": 84838
+    },
+    {
+      "id": "flow-launcher",
+      "name": "Flow Launcher",
+      "summary": "Quick file search and app launcher for Windows with community-made plugins",
+      "category": "utilities",
+      "downloads": 44967
+    },
+    {
+      "id": "python3",
+      "name": "Python 3.x",
+      "summary": "Python 3.x is a programming language that lets you work more quickly and integrate your systems more effectively. You can learn to use Python 3.x and see almost immediate gains in productivity and lower maintenance costs.",
+      "category": "developer",
+      "downloads": 48948876
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "summary": "Python is a programming language that lets you work more quickly and integrate your systems more effectively. You can learn to use Python and see almost immediate gains in productivity and lower maintenance costs.",
+      "category": "developer",
+      "downloads": 44944858
+    },
+    {
+      "id": "git.install",
+      "name": "Git (Install)",
+      "summary": "Git for Windows offers a native set of tools that bring the full feature set of the Git SCM to Windows",
+      "category": "developer",
+      "downloads": 25146970
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "summary": "Git for Windows offers a native set of tools that bring the full feature set of the Git SCM to Windows",
+      "category": "developer",
+      "downloads": 20149429
+    },
+    {
+      "id": "vscode.install",
+      "name": "Visual Studio Code (Install)",
+      "summary": "Visual Studio Code",
+      "category": "developer",
+      "downloads": 10493177
+    },
+    {
+      "id": "vscode",
+      "name": "Visual Studio Code",
+      "summary": "Visual Studio Code",
+      "category": "developer",
+      "downloads": 10397321
+    },
+    {
+      "id": "powershell-core",
+      "name": "powershell-core (Install)",
+      "summary": "PowerShell Core is the open source multiplatform version of PowerShell",
+      "category": "developer",
+      "downloads": 9929543
+    },
+    {
+      "id": "microsoft-windows-terminal",
+      "name": "Windows Terminal",
+      "summary": "Windows Terminal",
+      "category": "developer",
+      "downloads": 9766926
+    },
+    {
+      "id": "awscli",
+      "name": "AWS Command Line Interface v2 (Install)",
+      "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
+      "category": "developer",
+      "downloads": 7449110
+    },
+    {
+      "id": "nodejs",
+      "name": "Node JS",
+      "summary": "Node JS - Evented I/O for v8 JavaScript.",
+      "category": "developer",
+      "downloads": 7131405
+    },
+    {
+      "id": "curl",
+      "name": "cURL",
+      "summary": "cUrL is a command line tool and library for transferring data with URLs",
+      "category": "developer",
+      "downloads": 5868853
+    },
+    {
+      "id": "jq",
+      "name": "jq",
+      "summary": "Command-line JSON processor",
+      "category": "developer",
+      "downloads": 5141676
+    },
+    {
+      "id": "nodejs-lts",
+      "name": "Node.js LTS (Install)",
+      "summary": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine",
+      "category": "developer",
+      "downloads": 4942469
+    },
+    {
+      "id": "vim",
+      "name": "Vim",
+      "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
+      "category": "developer",
+      "downloads": 4941969
+    },
+    {
+      "id": "jdk8",
+      "name": "Java SE",
+      "summary": "The Java Development Kit (JDK) version 8.0.211",
+      "category": "developer",
+      "downloads": 4232939
+    },
+    {
+      "id": "make",
+      "name": "GNU make",
+      "summary": "GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program's source files. Make gets its knowledge of how to build your program from a file called the makefile, which lists each of the non-source files and how to compute it from other files. When you write a program, you should write a makefile for it, so that it is possible to use Make to build and install the program",
+      "category": "developer",
+      "downloads": 3829971
+    },
+    {
+      "id": "cmake",
+      "name": "CMake",
+      "summary": "Cross-platform, open-source build system including CMake, CTest, CPack, and CMake-GUI",
+      "category": "developer",
+      "downloads": 3663231
+    },
+    {
+      "id": "azure-cli",
+      "name": "Azure CLI",
+      "summary": "The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources.",
+      "category": "developer",
+      "downloads": 3481816
+    },
+    {
+      "id": "visualstudio2022buildtools",
+      "name": "Visual Studio 2022 Build Tools",
+      "summary": "Build Tools allow you to build native and managed MSBuild-based applications without requiring the Visual Studio IDE.",
+      "category": "developer",
+      "downloads": 3288567
+    },
+    {
+      "id": "llvm",
+      "name": "LLVM",
+      "summary": "LLVM Compiler Infrastructure",
+      "category": "developer",
+      "downloads": 2833618
+    },
+    {
+      "id": "postman",
+      "name": "Postman for Windows",
+      "summary": "Postman for Windows",
+      "category": "developer",
+      "downloads": 2688469
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "summary": "Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.",
+      "category": "developer",
+      "downloads": 2632455
+    },
+    {
+      "id": "mingw",
+      "name": "MinGW-w64",
+      "summary": "GCC for Windows 64 & 32 bits.",
+      "category": "developer",
+      "downloads": 2615599
+    },
+    {
+      "id": "kubernetes-cli",
+      "name": "Kubernetes Command Line Interface (CLI)",
+      "summary": "Kubernetes is an open source system for managing containerized applications across multiple hosts, providing basic mechanisms for deployment, maintenance, and scaling of applications.",
+      "category": "developer",
+      "downloads": 2357847
+    },
+    {
+      "id": "php",
+      "name": "PHP (Hypertext Preprocessor)",
+      "summary": "PHP – widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.",
+      "category": "developer",
+      "downloads": 2315183
+    },
+    {
+      "id": "docker-desktop",
+      "name": "Docker Desktop",
+      "summary": "The fastest way to containerize applications on your desktop",
+      "category": "developer",
+      "downloads": 2236712
+    },
+    {
+      "id": "golang",
+      "name": "Go Programming Language",
+      "summary": "The Go programming language is an open source project to make programmers more productive.",
+      "category": "developer",
+      "downloads": 2118558
+    },
+    {
+      "id": "gradle",
+      "name": "Gradle",
+      "summary": "Accelerate developer productivity",
+      "category": "developer",
+      "downloads": 1970383
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "summary": "Ruby - A dynamic, open source programming language focusing on simplicity and productivity.",
+      "category": "developer",
+      "downloads": 1866293
+    },
+    {
+      "id": "yarn",
+      "name": "Yarn (Install)",
+      "summary": "Package manager for the npm and bower package repositories",
+      "category": "developer",
+      "downloads": 1857517
+    },
+    {
+      "id": "maven",
+      "name": "Maven",
+      "summary": "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object \n\tmodel (POM), Maven can manage a project's build, reporting and documentation from a central piece of information",
+      "category": "developer",
+      "downloads": 1808804
+    },
+    {
+      "id": "wsl2",
+      "name": "Windows Subsystem for Linux 2",
+      "summary": "Windows Subsystem for Linux 2",
+      "category": "developer",
+      "downloads": 1629121
+    },
+    {
+      "id": "dbeaver",
+      "name": "DBeaver - Community Edition",
+      "summary": "Free multi-platform database tool for developers, SQL programmers, database administrators and analysts.",
+      "category": "developer",
+      "downloads": 1399112
+    },
+    {
+      "id": "protoc",
+      "name": "Protocol Buffers",
+      "summary": "Google's data interchange format",
+      "category": "developer",
+      "downloads": 1126142
+    },
+    {
+      "id": "gh",
+      "name": "GitHub CLI",
+      "summary": "Command line wrapper for git that makes you better at GitHub.",
+      "category": "developer",
+      "downloads": 1109608
+    },
+    {
+      "id": "dotnet-sdk",
+      "name": "Microsoft .NET SDK",
+      "summary": "The SDK includes the runtime and command line tools for creating .NET applications.",
+      "category": "developer",
+      "downloads": 1084094
+    },
+    {
+      "id": "dotnet-8.0-sdk",
+      "name": "Microsoft .NET 8.0 SDK",
+      "summary": "The SDK includes the runtime and command line tools for creating .NET applications.",
+      "category": "developer",
+      "downloads": 937426
+    },
+    {
+      "id": "intellijidea-community",
+      "name": "JetBrains IntelliJ IDEA",
+      "summary": "Capable and Ergonomic Java IDE",
+      "category": "developer",
+      "downloads": 845648
+    },
+    {
+      "id": "nvm",
+      "name": "NVM",
+      "summary": "A node.js version management utility for Windows.",
+      "category": "developer",
+      "downloads": 778709
+    },
+    {
+      "id": "mysql.workbench",
+      "name": "MySQL Workbench",
+      "summary": "MySQL Workbench (GUI Tool)",
+      "category": "developer",
+      "downloads": 748846
+    },
+    {
+      "id": "minikube",
+      "name": "Minikube: Run Kubernetes locally",
+      "summary": "Minikube is a tool that makes it easy to run Kubernetes locally.",
+      "category": "developer",
+      "downloads": 747823
+    },
+    {
+      "id": "neovim",
+      "name": "Neovim",
+      "summary": "Vim-fork focused on extensibility and usability.",
+      "category": "developer",
+      "downloads": 744386
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite",
+      "summary": "A DLL for the SQLite SQL database engine installed in your user path.",
+      "category": "developer",
+      "downloads": 731333
+    },
+    {
+      "id": "visualstudio2022community",
+      "name": "Visual Studio 2022 Community",
+      "summary": "Free, full-featured and extensible tool for students, open-source and individual developers",
+      "category": "developer",
+      "downloads": 593813
+    },
+    {
+      "id": "redis-64",
+      "name": "[Deprecated] Redis 64-bit",
+      "summary": "",
+      "category": "developer",
+      "downloads": 506896
+    },
+    {
+      "id": "composer",
+      "name": "Composer Setup",
+      "summary": "Windows installer for the Composer PHP Dependency Manager",
+      "category": "developer",
+      "downloads": 413437
+    },
+    {
+      "id": "k6",
+      "name": "k6",
+      "summary": "A modern load testing tool for developers and testers in the DevOps era",
+      "category": "developer",
+      "downloads": 346763
+    },
+    {
+      "id": "k9s",
+      "name": "k9s: Kubernetes CLI To Manage Your Clusters In Style!",
+      "summary": "K9s is a terminal based UI to interact with your Kubernetes clusters.",
+      "category": "developer",
+      "downloads": 299322
+    },
+    {
+      "id": "rust",
+      "name": "Rust (GNU ABI)",
+      "summary": "A systems programming language that runs blazingly fast, prevents nearly all segfaults, and guarantees thread safety",
+      "category": "developer",
+      "downloads": 287759
+    },
+    {
+      "id": "deno",
+      "name": "Deno",
+      "summary": "A secure runtime for JavaScript and TypeScript built with V8, Rust, and Tokio.",
+      "category": "developer",
+      "downloads": 249674
+    },
+    {
+      "id": "pnpm",
+      "name": "pnpm",
+      "summary": "Fast, disk space efficient package manager for Node-based projects.",
+      "category": "developer",
+      "downloads": 225034
+    },
+    {
+      "id": "julia",
+      "name": "Julia programming language",
+      "summary": "The Julia Language: A fresh approach to technical computing.",
+      "category": "developer",
+      "downloads": 168244
+    },
+    {
+      "id": "mongodb-compass",
+      "name": "MongoDB Compass (Install)",
+      "summary": "",
+      "category": "developer",
+      "downloads": 159749
+    },
+    {
+      "id": "kustomize",
+      "name": "Kustomize (Install)",
+      "summary": "Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is.",
+      "category": "developer",
+      "downloads": 154875
+    },
+    {
+      "id": "sublimetext4",
+      "name": "Sublime Text 4",
+      "summary": "Sublime Text 4 - The sophisticated text editor for code, markup and prose.",
+      "category": "developer",
+      "downloads": 141690
+    },
+    {
+      "id": "skaffold",
+      "name": "Skaffold (Install)",
+      "summary": "skaffold",
+      "category": "developer",
+      "downloads": 89467
+    },
+    {
+      "id": "argocd-cli",
+      "name": "Argo CD CLI",
+      "summary": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.",
+      "category": "developer",
+      "downloads": 68734
+    },
+    {
+      "id": "flux",
+      "name": "Flux CLI",
+      "summary": "An optional command line interface to be used with Flux",
+      "category": "developer",
+      "downloads": 60402
+    },
+    {
+      "id": "bun",
+      "name": "Bun",
+      "summary": "A fast all-in-one JavaScript runtime",
+      "category": "developer",
+      "downloads": 45493
+    },
+    {
+      "id": "golangci-lint",
+      "name": "Golangci-lint",
+      "summary": "Fast linters Runner for Go",
+      "category": "developer",
+      "downloads": 30957
+    },
+    {
+      "id": "octant",
+      "name": "Octant",
+      "summary": "A highly extensible platform for developers to better understand the complexity of Kubernetes clusters.",
+      "category": "developer",
+      "downloads": 22998
+    },
+    {
+      "id": "tilt",
+      "name": "Tilt",
+      "summary": "Kubernetes for Prod, Tilt for Dev",
+      "category": "developer",
+      "downloads": 9419
+    },
+    {
+      "id": "vcredist2015",
+      "name": "Microsoft Visual C++ Redistributable for Visual Studio 2015 Update 3 (with hotfix 2016-09-14)",
+      "summary": "Run-time components that are required to run C++ applications that are built by using Visual Studio 2015 Update 3",
+      "category": "runtimes",
+      "downloads": 47332792
+    },
+    {
+      "id": "jre8",
+      "name": "Java SE Runtime Environment",
+      "summary": "",
+      "category": "runtimes",
+      "downloads": 41946225
+    },
+    {
+      "id": "dotnetfx",
+      "name": "Microsoft .NET Framework 4.8",
+      "summary": "The .NET Framework is a development platform for building apps for web, Windows, Windows Phone, Windows Server, and Microsoft Azure.",
+      "category": "runtimes",
+      "downloads": 29932567
+    },
+    {
+      "id": "python2",
+      "name": "Python 2.x",
+      "summary": "Python 2.x is a programming language that lets you work more quickly and integrate your systems more effectively. You can learn to use Python and see almost immediate gains in productivity and lower maintenance costs.",
+      "category": "runtimes",
+      "downloads": 5187309
+    },
+    {
+      "id": "nvidia-display-driver",
+      "name": "NVidia Display Driver",
+      "summary": "NVIDIA Display Driver",
+      "category": "runtimes",
+      "downloads": 3742747
+    },
+    {
+      "id": "openssl",
+      "name": "OpenSSL",
+      "summary": "The Win32/Win64 OpenSSL Installation Project is dedicated to providing a simple installation of OpenSSL for Microsoft Windows.",
+      "category": "runtimes",
+      "downloads": 3578557
+    },
+    {
+      "id": "dotnet-8.0-runtime",
+      "name": "Microsoft .NET 8.0 Runtime",
+      "summary": "This package is required to run console applications with the .NET Runtime.",
+      "category": "runtimes",
+      "downloads": 1704339
+    },
+    {
+      "id": "dotnet-6.0-runtime",
+      "name": "Microsoft .NET 6.0 Runtime",
+      "summary": "This package is required to run console applications with the .NET Runtime.",
+      "category": "runtimes",
+      "downloads": 1666309
+    },
+    {
+      "id": "vcredist-all",
+      "name": "Microsoft Visual C++ Runtime - all versions",
+      "summary": "Run-time components that are required to run C++ applications that are built by using Visual Studio",
+      "category": "runtimes",
+      "downloads": 1210302
+    },
+    {
+      "id": "directx",
+      "name": "DirectX",
+      "summary": "Microsoft DirectX is a collection of application programming interfaces (APIs) for handling tasks related to multimedia, especially game programming and video, on Microsoft platforms",
+      "category": "runtimes",
+      "downloads": 831434
+    },
+    {
+      "id": "dotnetcore-3.1-runtime",
+      "name": "Microsoft .NET Core 3.1 Runtime",
+      "summary": "This package is required to run console applications with the .NET Core runtime.",
+      "category": "runtimes",
+      "downloads": 828824
+    },
+    {
+      "id": "dotnet-7.0-runtime",
+      "name": "Microsoft .NET 7.0 Runtime",
+      "summary": "This package is required to run console applications with the .NET Runtime.",
+      "category": "runtimes",
+      "downloads": 824366
+    },
+    {
+      "id": "discord.install",
+      "name": "Discord (Install)",
+      "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
+      "category": "gaming",
+      "downloads": 1158031
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "summary": "Valve's official steam client.",
+      "category": "gaming",
+      "downloads": 766744
+    },
+    {
+      "id": "epicgameslauncher",
+      "name": "Epic Games Launcher",
+      "summary": "Epic Games Launcher",
+      "category": "gaming",
+      "downloads": 360699
+    },
+    {
+      "id": "ubisoft-connect",
+      "name": "Ubisoft Connect",
+      "summary": "Ubisoft Connect is a cross-platform service available in more than 50 games. It enables actions, rewards and social interactions.",
+      "category": "gaming",
+      "downloads": 240045
+    },
+    {
+      "id": "goggalaxy",
+      "name": "GOG Galaxy",
+      "summary": "Truly gamer friendly, DRM-free online gaming platform.",
+      "category": "gaming",
+      "downloads": 176076
+    },
+    {
+      "id": "ea-app",
+      "name": "EA Desktop Client App",
+      "summary": "The EA app Powering EA's next generation of PC gaming",
+      "category": "gaming",
+      "downloads": 100668
+    },
+    {
+      "id": "playnite",
+      "name": "Playnite",
+      "summary": "Open source video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net and Uplay. Including game emulation support, providing one unified interface for your games.",
+      "category": "gaming",
+      "downloads": 91278
+    },
+    {
+      "id": "itch",
+      "name": "itch.io",
+      "summary": "Install, update and play indie games.",
+      "category": "gaming",
+      "downloads": 22000
+    }
+  ]
+}

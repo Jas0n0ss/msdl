@@ -2,18 +2,31 @@ Microsoft Software Download Listing
 ===================================
 
 **MSDL** is a static index of every official Windows release Microsoft still serves — retail,
-Arm64 and Server images — with one-click paths to their real download pages.
+Arm64 and Server images — plus a Chocolatey command builder that turns a list of software into
+one install line.
 
-The site is plain HTML, CSS and JavaScript: no build step, no framework, no tracker. The
-catalogue underneath it is regenerated from Microsoft's own services by GitHub Actions, twice a
-day.
+Plain HTML, CSS and JavaScript: no build step, no framework, no tracker. The catalogues are
+regenerated from Microsoft's own services and from the Chocolatey community feed by GitHub
+Actions, daily.
+
+Pages
+-----
+
+| Page | What it does |
+| --- | --- |
+| `index.html` | Browse and download Windows, pick a product from the picker, copy a download link |
+| `chocolatey.html` | Install Chocolatey and build a `choco install` command from 150+ packages |
+| `404.html` | Self-contained not-found page |
+
+The header links to **Activation** ([massgrave.dev](https://massgrave.dev/)) for people who need
+it; it is an external link, nothing is bundled.
 
 Products listed
 ---------------
 
 | Family | Source | Notes |
 | --- | --- | --- |
-| Windows 11 | Software Download connector, through the public [MSDL API](https://api.gravesoft.dev/msdl/) | x64 and Arm64, release and evaluation channels |
+| Windows 11 | Software Download connector | x64 and Arm64, retail channel |
 | Windows 10 | Software Download connector | The editions Microsoft still publishes |
 | Windows 7 | Software Download connector | All remaining retail editions |
 | Windows Server | Microsoft Evaluation Center | 180-day evaluation ISOs, linked per language |
@@ -61,42 +74,86 @@ node tools/check-assets.mjs                # every local href/src/font resolves
 Pinned products (`"pinned": true`) survive automatic pruning — that is how the Windows 7 and
 Windows 10 entries stay listed.
 
-### How the catalogue stays current
+### How the catalogues stay current
 
-`.github/workflows/update-products.yml` runs **twice a day** (04:17 and 16:17 UTC) and on
-demand. Each run:
+`.github/workflows/update-products.yml` runs every day at **04:17 UTC** and on demand. Each run:
 
 1. re-reads every published product so renamed releases and new builds are picked up,
 2. scans the next 300 product IDs for newly published releases,
 3. refreshes the Windows Server evaluation links and their build numbers,
-4. validates the result and commits `data/products.json` when anything changed.
+4. refreshes the Chocolatey package list,
+5. validates both files and commits them when anything changed.
 
-If the refresh fails, the workflow opens (or comments on) a **Catalog refresh failed** issue, so
-a silent failure cannot leave the site stale for weeks. A manual run accepts a `dry_run` input
-that prints the would-be catalogue without committing.
+`.github/workflows/validate.yml` runs on every push and pull request: syntax-checks the scripts,
+validates both data files against their policies, and verifies that every local stylesheet,
+script, font and page reference exists.
 
-`.github/workflows/validate.yml` runs on every push and pull request: it validates the data
-against the policy, syntax-checks the scripts, and verifies that every local stylesheet, script
-and font referenced by the page exists.
+Download links and the proxy
+----------------------------
+
+Microsoft's download connector sits behind a bot check ("Sentinel"). A plain request — including
+the public `api.gravesoft.dev` proxy — gets `ErrorSettings.SentinelReject` when generating links,
+so the product list works but the last step fails.
+
+`server/` contains a service that fixes this. It opens Microsoft's download page in a headless
+browser **once**, completes a real download flow, keeps the resulting `sessionID`, and from then
+on serves cheap HTTP calls for every product and language (generated links are cached for ten
+minutes). It mirrors the endpoints the page already uses:
+
+```bash
+cd server
+npm install
+npm start                                          # http://127.0.0.1:8787
+curl 'http://127.0.0.1:8787/skuinfo?product_id=3262'
+curl 'http://127.0.0.1:8787/proxy?product_id=3262&sku_id=19675'
+```
+
+Deploy it with `server/Dockerfile` on any Node 20+ host, then point the site at it with one line
+in `index.html`:
+
+```html
+<meta name="msdl-api" content="https://your-proxy.example">
+```
+
+Without a proxy the site still works — it shows a clear error plus a link to Microsoft's own
+download page.
+
+Chocolatey builder
+------------------
+
+`chocolatey.html` explains how to install Chocolatey and builds a `choco install` command from
+156 verified packages, grouped by category and searchable. The selection is stored in
+`localStorage` and mirrored into the URL (`chocolatey.html#git,vscode,7zip`), so a setup can be
+shared.
+
+`data/chocolatey.json` is generated from the Chocolatey community feed:
+
+```bash
+node tools/update-chocolatey.mjs            # refresh titles, summaries, download counts
+node tools/update-chocolatey.mjs --dry-run  # preview
+```
+
+Which packages appear is decided by `data/chocolatey.config.json` — add a package id with a
+category and the updater validates it against the live feed, dropping anything that no longer
+exists.
 
 The design
 ----------
 
-An editorial, technical index rather than a marketing page:
+Quiet surfaces and real typography, with the index's technical detail kept intact:
 
-- **Type** — Space Grotesk for display, Inter for text, JetBrains Mono for every number, build
-  and label. All three are self-hosted (latin subsets, ~100 KB total) so the page never calls a
-  third-party font service.
-- **Colour** — warm paper and ink in light mode, near-black in dark mode, with a single
-  phosphor-green accent used only for signal. Both themes meet WCAG AA for text.
-- **Layout** — numbered rows, hairline rules and a blueprint grid, with a sticky family rail on
-  desktop and wrapping filter chips on mobile.
-- **State** — the manifest card in the hero reports the catalogue's last sync, entry count and
-  refresh cadence, and turns amber when the data is older than 36 hours.
-- **Keyboard** — `/` or `⌘K` to search, `↓`/`↑` to move through rows, `↵` to open, `esc` to go
-  back.
-- `prefers-reduced-motion` and `prefers-color-scheme` are both respected, and the chosen theme
-  is remembered.
+- **Type** — the system stack (SF on Apple platforms, Segoe UI on Windows) for the interface;
+  a self-hosted JetBrains Mono (latin subset, SIL OFL — see `fonts/LICENSE.txt`) for build
+  numbers, package ids, status readouts and code.
+- **Colour** — near-white `#fbfbfd` and true black, a single blue accent for anything
+  interactive, and a green dot used only for the live-catalogue signal. Both themes meet WCAG AA.
+- **Layout** — a two-column hero with the catalogue-status card, a product picker instead of a
+  long list, hairline cards and generous whitespace.
+- **State** — loading skeletons, empty states, a clear error panel when Microsoft rejects a
+  request, and a link to the manual download page.
+- **Keyboard** — `/` or `⌘K` focuses search, `↓` jumps into the picker, `esc` closes the detail.
+- `prefers-reduced-motion` and `prefers-color-scheme` are respected, and the chosen theme is
+  remembered.
 
 Running locally
 ---------------
@@ -106,29 +163,30 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-Any static file server works; the page only needs `index.html`, `css/`, `js/`, `fonts/` and
-`data/`. Opening `index.html` from the filesystem will not work, because the page fetches
-`data/products.json`.
+Any static file server works; the page only needs `index.html`, `chocolatey.html`, `css/`,
+`js/`, `fonts/` and `data/`. Opening the files from disk will not work, because the pages fetch
+their JSON.
 
 Layout
 ------
 
 ```
 index.html                  the catalogue
+chocolatey.html             the package builder
 404.html                    self-contained not-found page
 css/style.css               design tokens, layout, components
-js/msdl.js                  catalogue, routing, download flow
-data/products.json          generated catalogue
+js/msdl.js                  catalogue, picker, routing, download flow
+js/choco.js                 Chocolatey builder
+data/products.json          generated Windows catalogue
 data/catalog.config.json    curation policy
-fonts/                      self-hosted woff2 subsets (SIL OFL 1.1)
-tools/                      catalog updater + validators
+data/chocolatey.json        generated package catalogue
+data/chocolatey.config.json package curation policy
+fonts/                      JetBrains Mono woff2 subset (SIL OFL 1.1)
+server/                     download-link proxy (Node + Playwright, Dockerfile included)
+tools/                      catalog updaters + validators
 .github/workflows/          scheduled refresh + validation
 ```
 
 License
 -------
-
 This project is licensed under the terms of GNU Affero General Public License Version 3.
-
-The bundled typefaces — Space Grotesk, Inter and JetBrains Mono — are licensed under the SIL
-Open Font License 1.1; see `fonts/LICENSE.txt`.

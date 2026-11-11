@@ -63,6 +63,7 @@ async function checkCssUrls(file) {
 }
 
 await checkReferences('index.html');
+await checkReferences('chocolatey.html');
 await checkReferences('404.html');
 await checkCssUrls('css/style.css');
 

@@ -1,0 +1,16 @@
+{
+  "name": "msdl-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Download-link proxy for MSDL. Warms a Microsoft connector session and mirrors the /skuinfo and /proxy endpoints.",
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

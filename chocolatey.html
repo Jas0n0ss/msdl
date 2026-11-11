@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="description"
+        content="Build a Chocolatey install command for the software you actually use — pick from 150+ verified packages and copy one line.">
+
+    <meta property="og:site_name" content="MSDL">
+    <meta property="og:title" content="Chocolatey command builder — MSDL">
+    <meta property="og:type" content="website">
+    <meta property="og:description"
+        content="Install Chocolatey, pick your software, and copy a single choco install command.">
+
+    <title>Chocolatey — MSDL</title>
+
+    <script>
+        try {
+            var storedTheme = localStorage.getItem('msdl-theme');
+            document.documentElement.dataset.theme =
+                storedTheme === 'light' || storedTheme === 'dark'
+                    ? storedTheme
+                    : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } catch (error) {
+            /* storage can be blocked; the default theme still renders */
+        }
+    </script>
+
+    <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/choco.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+        <symbol id="i-mark" viewBox="0 0 20 20">
+            <rect x="2.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor" />
+            <rect x="11.5" y="2.5" width="6" height="6" rx="1.6" fill="currentColor" />
+            <rect x="2.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" />
+            <rect x="11.5" y="11.5" width="6" height="6" rx="1.6" fill="currentColor" opacity=".4" />
+        </symbol>
+        <symbol id="i-search" viewBox="0 0 20 20">
+            <circle cx="8.8" cy="8.8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+            <path d="m13 13 3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 20 20">
+            <path d="m5.8 5.8 8.4 8.4m0-8.4-8.4 8.4" fill="none" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 20 20">
+            <circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <path d="M10 2v1.8M10 16.2V18M18 10h-1.8M3.8 10H2M15.7 4.3l-1.3 1.3M5.6 14.4l-1.3 1.3M15.7 15.7l-1.3-1.3M5.6 5.6 4.3 4.3"
+                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 20 20">
+            <path d="M16.2 12.3A6.6 6.6 0 0 1 7.7 3.8a6.6 6.6 0 1 0 8.5 8.5Z" fill="none" stroke="currentColor"
+                stroke-width="1.6" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 20 20">
+            <path
+                d="M10 1.8a8.3 8.3 0 0 0-2.6 16.2c.4.1.6-.2.6-.4v-1.5c-2.3.5-2.8-1.1-2.8-1.1-.4-1-.9-1.2-.9-1.2-.8-.5 0-.5 0-.5.8 0 1.3.9 1.3.9.8 1.3 2 .9 2.5.7 0-.6.3-1 .6-1.2-1.9-.2-3.8-1-3.8-4.2 0-.9.3-1.7.8-2.3 0-.2-.3-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 0 1 4.2 0c1.6-1.1 2.3-.9 2.3-.9.4 1.2.1 2.1.1 2.3.5.6.8 1.4.8 2.3 0 3.2-2 4-3.9 4.2.3.3.6.8.6 1.6v2.4c0 .2.2.5.6.4A8.3 8.3 0 0 0 10 1.8Z"
+                fill="currentColor" />
+        </symbol>
+    </svg>
+
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="index.html" aria-label="MSDL — all products">
+                <svg class="brand-mark" aria-hidden="true" focusable="false">
+                    <use href="#i-mark" />
+                </svg>
+                <span class="brand-word">MSDL</span>
+            </a>
+
+            <nav class="header-nav" aria-label="Primary">
+                <a class="nav-link" href="index.html">Catalog</a>
+                <a class="nav-link" href="chocolatey.html" aria-current="page">Chocolatey</a>
+                <a class="nav-link nav-link-activation" href="https://massgrave.dev/" target="_blank"
+                    rel="noreferrer noopener">Activation</a>
+                <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                        <use href="#i-github" />
+                    </svg>
+                    <span class="nav-link-text">Source</span>
+                </a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
+                    <svg class="icon theme-icon-light" aria-hidden="true" focusable="false">
+                        <use href="#i-sun" />
+                    </svg>
+                    <svg class="icon theme-icon-dark" aria-hidden="true" focusable="false">
+                        <use href="#i-moon" />
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero shell" aria-labelledby="hero-title">
+            <div class="hero-copy hero-copy-wide">
+                <p class="eyebrow">
+                    <span class="eyebrow-index">02</span>
+                    <span>Chocolatey</span>
+                </p>
+                <h1 class="hero-title" id="hero-title">
+                    Install a fresh Windows machine
+                    <span class="hero-dim">with one command.</span>
+                </h1>
+                <p class="lede">
+                    Chocolatey is a package manager for Windows. Install it once, pick the software you
+                    need below, and copy a single command that sets everything up — no clicking through
+                    installers.
+                </p>
+            </div>
+        </section>
+
+        <section class="choco shell" aria-labelledby="install-title">
+            <div class="panel choco-install">
+                <div class="panel-head">
+                    <div>
+                        <h2 class="panel-title" id="install-title">1 · Install Chocolatey</h2>
+                        <p class="panel-note">
+                            Run this once in an elevated PowerShell (Run as administrator). It is the
+                            official installer from community.chocolatey.org.
+                        </p>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <code id="install-command">Loading…</code>
+                    <button class="copy copy-lg" type="button" data-copy-target="install-command"
+                        aria-label="Copy the Chocolatey install command">
+                        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+                            <rect x="7" y="7" width="9.5" height="9.5" rx="2" fill="none" stroke="currentColor"
+                                stroke-width="1.5" />
+                            <path d="M13 4.6A2.1 2.1 0 0 0 11 3.5H5.6A2.1 2.1 0 0 0 3.5 5.6V11a2.1 2.1 0 0 0 1.1 1.9"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+                <p class="note">
+                    <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+                        <circle cx="10" cy="10" r="7.2" fill="none" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M10 9v4.6" fill="none" stroke="currentColor" stroke-width="1.7"
+                            stroke-linecap="round" />
+                        <circle cx="10" cy="6.4" r=".95" fill="currentColor" />
+                    </svg>
+                    <span>After it finishes, close and reopen the terminal so <code>choco</code> is on your PATH.</span>
+                </p>
+            </div>
+        </section>
+
+        <section class="choco shell" aria-labelledby="builder-title">
+            <div class="panel">
+                <div class="panel-head">
+                    <div>
+                        <h2 class="panel-title" id="builder-title">2 · Pick your software</h2>
+                        <p class="panel-note">
+                            Verified package ids from the Chocolatey community feed. The command updates as
+                            you select — share the link to hand the same setup to someone else.
+                        </p>
+                    </div>
+                    <span class="group-count" id="pkg-count" role="status" aria-live="polite"></span>
+                    <p class="choco-meta mono" id="catalog-size"></p>
+                </div>
+
+                <div class="choco-tools">
+                    <div class="filter-input">
+                        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+                            <circle cx="8.8" cy="8.8" r="5.4" fill="none" stroke="currentColor" stroke-width="1.7" />
+                            <path d="m13 13 3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.7"
+                                stroke-linecap="round" />
+                        </svg>
+                        <label class="visually-hidden" for="pkg-filter">Filter packages</label>
+                        <input id="pkg-filter" type="search" placeholder="Filter packages" autocomplete="off"
+                            spellcheck="false">
+                    </div>
+                    <div class="choco-cats" id="choco-cats" role="group" aria-label="Filter by category"></div>
+                </div>
+
+                <div class="choco-grid" id="choco-grid" aria-busy="true"></div>
+
+                <div class="command-bar" id="command-bar" hidden>
+                    <div class="command-text">
+                        <span class="command-label">Your command</span>
+                        <code id="command-output"></code>
+                    </div>
+                    <div class="command-actions">
+                        <button class="button button-secondary" type="button" id="command-reset">Clear</button>
+                        <button class="button" type="button" id="command-copy">Copy command</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer shell">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <svg class="brand-mark" aria-hidden="true" focusable="false">
+                    <use href="#i-mark" />
+                </svg>
+                <span class="brand-word">MSDL</span>
+            </div>
+            <p class="footer-note">
+                Package metadata comes from community.chocolatey.org and is refreshed by CI.
+                MSDL is not affiliated with Chocolatey.
+            </p>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-stamp mono" id="footer-stamp">data/chocolatey.json</p>
+            <div class="footer-links">
+                <a href="index.html">Catalog</a>
+                <a href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">Source</a>
+                <a href="https://massgrave.dev/" target="_blank" rel="noreferrer noopener">Activation</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
