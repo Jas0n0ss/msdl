@@ -1,0 +1,9 @@
+.git
+.github
+node_modules
+server
+tools
+.shots
+.npmcache
+package-lock.json
+.gitignore
