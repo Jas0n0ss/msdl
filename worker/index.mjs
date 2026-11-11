@@ -17,6 +17,7 @@ import puppeteer from '@cloudflare/puppeteer';
 
 const PAGES = {
     'windows-11': 'https://www.microsoft.com/en-us/software-download/windows11',
+    'windows-11-arm64': 'https://www.microsoft.com/en-us/software-download/windows11arm64',
     'windows-10': 'https://www.microsoft.com/en-us/software-download/windows10ISO',
 };
 const CONNECTOR = 'https://www.microsoft.com/software-download-connector/api';
@@ -71,16 +72,20 @@ function withBrowserSlot(task) {
 const isRateLimited = (error) => /429|rate limit/i.test(error?.message ?? '');
 
 /** Tries the known Microsoft pages when the caller did not say which family. */
-async function driveAnyFamily(env, { productId, skuId, family }) {
+async function driveAnyFamily(env, { productId, skuId, family, arch }) {
     const numeric = Number(productId);
-    const ordered = Number.isFinite(numeric) && numeric < 3000
+    const auto = Number.isFinite(numeric) && numeric < 3000
         ? ['windows-10', 'windows-11']
         : ['windows-11', 'windows-10'];
-    const candidates = family ? [family] : ordered;
+    const candidates = family
+        ? family === 'windows-11' && arch === 'arm64'
+            ? ['windows-11-arm64', 'windows-11']
+            : [family]
+        : auto;
     let lastError;
     for (const candidate of candidates) {
         try {
-            const result = await drivePage(env, { productId, skuId, family: candidate });
+            const result = await drivePage(env, { productId, skuId, family: candidate, arch });
             if (skuId ? result.links?.length : result.languages?.length) return result;
             lastError = new Error('No data returned');
         } catch (error) {
@@ -95,8 +100,9 @@ async function driveAnyFamily(env, { productId, skuId, family }) {
  * flow in the page is what makes Sentinel accept the requests; a bare fetch
  * with a fresh session id is rejected.
  */
-async function drivePage(env, { productId, skuId, family }) {
-    const pageUrl = PAGES[family ?? 'windows-11'];
+async function drivePage(env, { productId, skuId, family, arch }) {
+    const key = family === 'windows-11' && arch === 'arm64' ? 'windows-11-arm64' : family ?? 'windows-11';
+    const pageUrl = PAGES[key];
     if (!pageUrl) throw new Error(`Microsoft does not publish this family through the connector (${family})`);
     const attempt = async (retries) => {
         let browser;
@@ -186,13 +192,14 @@ export default {
             if (url.pathname === '/skuinfo') {
                 const productId = url.searchParams.get('product_id');
                 const family = url.searchParams.get('family') ?? null;
+                const arch = url.searchParams.get('arch') ?? '';
                 if (!productId) return failure('product_id is required', 400);
 
-                const key = `sku:${family ?? 'auto'}:${productId}`;
+                const key = `sku:${family ?? 'auto'}:${arch}:${productId}`;
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { languages } = await driveAnyFamily(env, { productId, family });
+                const { languages } = await driveAnyFamily(env, { productId, family, arch });
                 const payload = {
                     ValidationContainer: { Errors: [] },
                     Skus: languages.map((entry) => {
@@ -213,13 +220,14 @@ export default {
                 const productId = url.searchParams.get('product_id');
                 const skuId = url.searchParams.get('sku_id') ?? url.searchParams.get('sku');
                 const family = url.searchParams.get('family') ?? null;
+                const arch = url.searchParams.get('arch') ?? '';
                 if (!productId && !skuId) return failure('product_id or sku_id is required', 400);
 
-                const key = `link:${family ?? 'auto'}:${productId}:${skuId}`;
+                const key = `link:${family ?? 'auto'}:${arch}:${productId}:${skuId}`;
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { links } = await driveAnyFamily(env, { productId, skuId, family });
+                const { links } = await driveAnyFamily(env, { productId, skuId, family, arch });
                 const payload = {
                     ProductDownloadOptions: links.map((link) => ({
                         Name: link.name,
