@@ -33,6 +33,17 @@ const CORS = {
 };
 
 const cache = new Map();
+const inflight = new Map();
+
+/** Collapses concurrent identical requests into one browser run. */
+function dedupe(key, factory) {
+    const existing = inflight.get(key);
+    if (existing) return existing;
+
+    const promise = factory().finally(() => inflight.delete(key));
+    inflight.set(key, promise);
+    return promise;
+}
 const ttl = (key) => {
     const hit = cache.get(key);
     if (!hit) return null;
@@ -199,20 +210,24 @@ export default {
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { languages } = await driveAnyFamily(env, { productId, family, arch });
-                const payload = {
-                    ValidationContainer: { Errors: [] },
-                    Skus: languages.map((entry) => {
-                        let id = entry.value;
-                        try {
-                            id = JSON.parse(entry.value).id ?? entry.value;
-                        } catch {
-                            /* value is already the id */
-                        }
-                        return { Id: String(id), LocalizedLanguage: entry.label, Language: entry.label };
-                    }),
-                };
-                cache.set(key, { at: Date.now(), value: payload });
+                const payload = await dedupe(key, async () => {
+                    const { languages } = await driveAnyFamily(env, { productId, family, arch });
+                    const value = {
+                        ValidationContainer: { Errors: [] },
+                        Skus: languages.map((entry) => {
+                            let id = entry.value;
+                            try {
+                                id = JSON.parse(entry.value).id ?? entry.value;
+                            } catch {
+                                /* value is already the id */
+                            }
+                            return { Id: String(id), LocalizedLanguage: entry.label, Language: entry.label };
+                        }),
+                    };
+                    cache.set(key, { at: Date.now(), value });
+                    return value;
+                });
+
                 return json(payload);
             }
 
@@ -227,18 +242,24 @@ export default {
                 const hit = ttl(key);
                 if (hit) return json(hit);
 
-                const { links } = await driveAnyFamily(env, { productId, skuId, family, arch });
-                const payload = {
-                    ProductDownloadOptions: links.map((link) => ({
-                        Name: link.name,
-                        Uri: link.uri,
-                        DownloadType: /arm64/i.test(link.uri) ? 1 : 0,
-                    })),
-                };
+                const payload = await dedupe(key, async () => {
+                    const { links } = await driveAnyFamily(env, { productId, skuId, family, arch });
+                    const value = {
+                        ProductDownloadOptions: links.map((link) => ({
+                            Name: link.name,
+                            Uri: link.uri,
+                            DownloadType: /arm64/i.test(link.uri) ? 1 : 0,
+                        })),
+                    };
+                    if (value.ProductDownloadOptions.length > 0) {
+                        cache.set(key, { at: Date.now(), value });
+                    }
+                    return value;
+                });
+
                 if (payload.ProductDownloadOptions.length === 0) {
                     return failure('Microsoft returned no download links for that language');
                 }
-                cache.set(key, { at: Date.now(), value: payload });
                 return json(payload);
             }
 
