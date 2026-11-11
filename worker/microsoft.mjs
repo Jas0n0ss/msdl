@@ -45,7 +45,14 @@ export async function drivePage(env, { productId, skuId, family, arch }) {
     const attempt = async (retries) => {
         let browser;
         try {
-            browser = await getBrowser(env);
+            try {
+                browser = await getBrowser(env);
+            } catch (launchError) {
+                // Quota or concurrency is exhausted: retrying only makes the
+                // visitor wait longer, so fail fast with the real reason.
+                if (isRateLimited(launchError)) throw Object.assign(launchError, { fatal: true });
+                throw launchError;
+            }
             const page = await browser.newPage();
 
             await page.goto(pageUrl, { waitUntil: 'domcontentloaded', timeout: 45_000 });
@@ -104,7 +111,7 @@ export async function drivePage(env, { productId, skuId, family, arch }) {
         } catch (error) {
             // A broken page can leave the shared browser in a bad state.
             await closeBrowser().catch(() => {});
-            if (isRateLimited(error) && retries > 0) {
+            if (!error?.fatal && isRateLimited(error) && retries > 0) {
                 await new Promise((resolve) => setTimeout(resolve, 6000));
                 return attempt(retries - 1);
             }
