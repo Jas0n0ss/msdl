@@ -160,6 +160,26 @@ Quiet surfaces and real typography, with the index's technical detail kept intac
 - `prefers-reduced-motion` and `prefers-color-scheme` are respected, and the chosen theme is
   remembered.
 
+Deploying to Cloudflare Pages
+----------------------------
+
+The site is static, so Pages serves the repository root as-is.
+
+1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** and pick
+   `Jas0n0ss/msdl`. Framework preset: *None*, build command: empty, output directory: `/`.
+2. **Custom domains → Set up a custom domain** → `msdl.404x.io`. The `404x.io` zone must be in
+   the same Cloudflare account; the CNAME is created automatically.
+3. `.github/workflows/deploy-cloudflare.yml` deploys on every push once two repository secrets
+   exist: `CLOUDFLARE_API_TOKEN` (Pages:Edit) and `CLOUDFLARE_ACCOUNT_ID`. If you use Pages' own
+   Git integration instead, delete that workflow — running both deploys twice.
+
+`_headers` sets security and cache headers (HTML revalidates, fonts are immutable, JSON is
+cached for five minutes). `_redirects` maps the short paths (`/catalog`, `/choco`, `/activate`).
+
+The download proxy is **not** deployed to Pages: it needs a headless Chromium, which Workers do
+not run. Host `server/` on any Node container (Fly, Render, a VPS) and point
+`<meta name="msdl-api">` at it, for example `https://api.msdl.404x.io`.
+
 Running locally
 ---------------
 

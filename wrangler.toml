@@ -1,0 +1,5 @@
+# Cloudflare Pages project configuration.
+# Deploy with: npx wrangler pages deploy . --project-name msdl
+name = "msdl"
+compatibility_date = "2026-11-01"
+pages_build_output_dir = "."
