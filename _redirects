@@ -1,5 +1,6 @@
+# Cloudflare Pages serves /chocolatey from chocolatey.html by itself, so a rule
+# pointing at the .html file would bounce back and forth. Only real aliases here.
 /catalog    /            301
-/choco      /chocolatey.html  301
-/chocolatey /chocolatey.html  301
-/activate   /activation.html  301
+/choco      /chocolatey  301
+/activate   /activation  301
 /windows    /#catalog    301
