@@ -320,25 +320,8 @@
         });
     }
 
-    function initTheme() {
-        const toggle = el.themeToggle;
-        if (!toggle) return;
-
-        const root = document.documentElement;
-        toggle.addEventListener('click', () => {
-            const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-            root.dataset.theme = next;
-            try {
-                localStorage.setItem('msdl-theme', next);
-            } catch {
-                /* ignore */
-            }
-        });
-    }
-
     function init() {
         cacheElements();
-        initTheme();
         bindEvents();
         el.grid.innerHTML = Array.from({ length: 8 }, () => '<div class="skeleton" style="height:74px"></div>').join('');
         loadData();

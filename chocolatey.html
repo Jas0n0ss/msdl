@@ -30,6 +30,8 @@
         }
     </script>
 
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script defer src="js/ui.js"></script>
     <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/choco.js"></script>
@@ -79,17 +81,18 @@
             </a>
 
             <nav class="header-nav" aria-label="Primary">
-                <a class="nav-link" href="index.html">Catalog</a>
+                <a class="nav-link" href="index.html" data-i18n="nav.catalog">Catalog</a>
                 <a class="nav-link" href="chocolatey.html" aria-current="page">Chocolatey</a>
-                <a class="nav-link" href="office.html">Office</a>
-                <a class="nav-link" href="activation.html">Activation</a>
+                <a class="nav-link" href="office.html" data-i18n="nav.office">Office</a>
+                <a class="nav-link" href="activation.html" data-i18n="nav.activation">Activation</a>
                 <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">
                     <svg class="icon" aria-hidden="true" focusable="false">
                         <use href="#i-github" />
                     </svg>
-                    <span class="nav-link-text">Source</span>
+                    <span class="nav-link-text" data-i18n="nav.source">Source</span>
                 </a>
-                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
+                <button class="nav-link lang-toggle" type="button" data-lang-toggle aria-label="切换到中文">中文</button>
+                <button class="theme-toggle" id="theme-toggle" data-theme-toggle type="button" aria-label="Switch to dark appearance">
                     <svg class="icon theme-icon-light" aria-hidden="true" focusable="false">
                         <use href="#i-sun" />
                     </svg>

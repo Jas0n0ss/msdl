@@ -141,49 +141,6 @@
 
     const root = document.documentElement;
 
-    function applyTheme(theme, persist = true) {
-        root.dataset.theme = theme;
-        if (el.themeToggle) {
-            el.themeToggle.setAttribute(
-                'aria-label',
-                theme === 'dark' ? 'Switch to light appearance' : 'Switch to dark appearance',
-            );
-        }
-        if (persist) {
-            try {
-                localStorage.setItem(THEME_KEY, theme);
-            } catch {
-                /* private mode — the inline bootstrap handles the rest */
-            }
-        }
-    }
-
-    function initTheme() {
-        const stored = (() => {
-            try {
-                return localStorage.getItem(THEME_KEY);
-            } catch {
-                return null;
-            }
-        })();
-
-        if (stored === 'light' || stored === 'dark') {
-            applyTheme(stored, false);
-            return;
-        }
-
-        const media = window.matchMedia('(prefers-color-scheme: dark)');
-        applyTheme(media.matches ? 'dark' : 'light', false);
-        media.addEventListener?.('change', (event) => {
-            let current = null;
-            try {
-                current = localStorage.getItem(THEME_KEY);
-            } catch {
-                current = null;
-            }
-            if (!current) applyTheme(event.matches ? 'dark' : 'light', false);
-        });
-    }
 
     /* --------------------------------------------------------- data + view */
 
@@ -1024,10 +981,6 @@
             el.search.focus();
         });
 
-        el.themeToggle?.addEventListener('click', () => {
-            applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
-        });
-
         document.addEventListener('keydown', (event) => {
             const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName ?? '');
             const isSlash = event.key === '/' && !typing;
@@ -1079,7 +1032,6 @@
 
     function init() {
         cacheElements();
-        initTheme();
         bindEvents();
         el.catalogBody.innerHTML = skeletonCatalog(3);
         loadCatalog();

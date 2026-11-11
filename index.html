@@ -35,6 +35,8 @@
         }
     </script>
 
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script defer src="js/ui.js"></script>
     <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/msdl.js"></script>
@@ -88,17 +90,18 @@
             </a>
 
             <nav class="header-nav" aria-label="Primary">
-                <a class="nav-link" href="#catalog">Catalog</a>
-                <a class="nav-link" href="chocolatey.html">Chocolatey</a>
-                <a class="nav-link" href="office.html">Office</a>
-                <a class="nav-link" href="activation.html">Activation</a>
+                <a class="nav-link" href="#catalog" data-i18n="nav.catalog">Catalog</a>
+                <a class="nav-link" href="chocolatey.html" data-i18n="nav.chocolatey">Chocolatey</a>
+                <a class="nav-link" href="office.html" data-i18n="nav.office">Office</a>
+                <a class="nav-link" href="activation.html" data-i18n="nav.activation">Activation</a>
                 <a class="nav-link" href="https://github.com/Jas0n0ss/msdl" target="_blank" rel="noreferrer noopener">
                     <svg class="icon" aria-hidden="true" focusable="false">
                         <use href="#i-github" />
                     </svg>
-                    <span class="nav-link-text">Source</span>
+                    <span class="nav-link-text" data-i18n="nav.source">Source</span>
                 </a>
-                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark appearance">
+                <button class="nav-link lang-toggle" type="button" data-lang-toggle aria-label="切换到中文">中文</button>
+                <button class="theme-toggle" id="theme-toggle" data-theme-toggle type="button" aria-label="Switch to dark appearance">
                     <svg class="icon theme-icon-light" aria-hidden="true" focusable="false">
                         <use href="#i-sun" />
                     </svg>
@@ -116,13 +119,13 @@
                 <div class="hero-copy">
                     <p class="eyebrow">
                         <span class="eyebrow-index">01</span>
-                        <span>Microsoft Software Download</span>
+                        <span data-i18n="hero.eyebrow">Microsoft Software Download</span>
                     </p>
                     <h1 class="hero-title" id="hero-title">
-                        Every official Windows release.
-                        <span class="hero-dim">One index.</span>
+                        <span data-i18n="hero.title1">Every official Windows release.</span>
+                        <span class="hero-dim" data-i18n="hero.title2">One index.</span>
                     </h1>
-                    <p class="lede">
+                    <p class="lede" data-i18n="hero.lede">
                         Retail, Arm64 and Server images — read from Microsoft’s own catalogue, checked
                         every night, and linked straight to the download servers.
                     </p>
@@ -163,9 +166,9 @@
                 <svg class="icon search-icon" aria-hidden="true" focusable="false">
                     <use href="#i-search" />
                 </svg>
-                <label class="visually-hidden" for="search-products">Search products</label>
+                <label class="visually-hidden" for="search-products" data-i18n="search.label">Search products</label>
                 <input class="search-input" id="search-products" type="search"
-                    placeholder="Filter by release, edition, build or architecture" autocomplete="off"
+                    placeholder="Filter by release, edition, build or architecture" data-i18n-placeholder="search.placeholder" autocomplete="off"
                     spellcheck="false" enterkeyhint="search">
                 <kbd class="key search-hint" id="search-hint" aria-hidden="true">/</kbd>
                 <button class="search-clear" id="search-clear" type="button" aria-label="Clear search" hidden>
@@ -207,7 +210,7 @@
                 </svg>
                 <span class="brand-word">MSDL</span>
             </div>
-            <p class="footer-note">
+            <p class="footer-note" data-i18n="footer.note">
                 An unofficial index of Microsoft software. Downloads are served by Microsoft;
                 MSDL is not affiliated with Microsoft.
             </p>
