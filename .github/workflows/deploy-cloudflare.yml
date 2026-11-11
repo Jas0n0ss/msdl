@@ -18,6 +18,8 @@ jobs:
     name: Deploy msdl
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
     steps:
       - name: Check out the repository
@@ -28,7 +30,15 @@ jobs:
           node tools/check-assets.mjs
           node tools/validate-products.mjs
 
+      - name: Explain what is missing
+        if: env.CLOUDFLARE_API_TOKEN == ''
+        run: |
+          echo "::notice::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to repository secrets to deploy, or use Cloudflare Pages' own Git integration."
+          echo "Static site verified; skipping the upload."
+          exit 0
+
       - name: Publish to Cloudflare Pages
+        if: env.CLOUDFLARE_API_TOKEN != ''
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
