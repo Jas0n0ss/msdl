@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T12:50:40.606Z",
+  "updated": "2026-11-12T22:16:41.508Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -63,7 +63,7 @@
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4925959
+      "downloads": 4926542
     },
     {
       "id": "chromium",
@@ -280,7 +280,7 @@
       "name": "LibreOffice Fresh",
       "summary": "LibreOffice is the free power-packed Open Source personal productivity suite for Windows, Macintosh and Linux, that gives you six feature-rich applications for all your document production and data processing needs.",
       "category": "office",
-      "downloads": 7394334
+      "downloads": 7474558
     },
     {
       "id": "pdf24",
@@ -308,7 +308,7 @@
       "name": "Notion",
       "summary": "Your connected workspace for wiki, docs and projects.",
       "category": "office",
-      "downloads": 470179
+      "downloads": 470854
     },
     {
       "id": "sumatrapdf",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2689609
+      "downloads": 2690372
     },
     {
       "id": "terraform",
@@ -882,7 +882,7 @@
       "name": "k6",
       "summary": "A modern load testing tool for developers and testers in the DevOps era",
       "category": "developer",
-      "downloads": 346763
+      "downloads": 359471
     },
     {
       "id": "k9s",
