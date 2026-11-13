@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13T12:19:19.969Z",
+  "updated": "2026-11-13T22:00:33.876Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -42,7 +42,7 @@
       "name": "Google Chrome",
       "summary": "",
       "category": "browsers",
-      "downloads": 394347109
+      "downloads": 394353553
     },
     {
       "id": "firefox",
@@ -56,14 +56,14 @@
       "name": "Microsoft Edge",
       "summary": "Microsoft Edge browser, based on the Chromium open source browser.",
       "category": "browsers",
-      "downloads": 102710655
+      "downloads": 102712235
     },
     {
       "id": "brave",
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4926542
+      "downloads": 4928840
     },
     {
       "id": "chromium",
@@ -133,7 +133,7 @@
       "name": "Telegram",
       "summary": "Cloud-based synchronized messaging app with a focus on speed and security",
       "category": "communication",
-      "downloads": 949939
+      "downloads": 950300
     },
     {
       "id": "discord",
@@ -161,7 +161,7 @@
       "name": "Spotify",
       "summary": "Spotify is a new way to listen to music",
       "category": "media",
-      "downloads": 5464725
+      "downloads": 5465824
     },
     {
       "id": "gimp",
@@ -280,7 +280,7 @@
       "name": "LibreOffice Fresh",
       "summary": "LibreOffice is the free power-packed Open Source personal productivity suite for Windows, Macintosh and Linux, that gives you six feature-rich applications for all your document production and data processing needs.",
       "category": "office",
-      "downloads": 7474558
+      "downloads": 7475740
     },
     {
       "id": "pdf24",
@@ -308,7 +308,7 @@
       "name": "Notion",
       "summary": "Your connected workspace for wiki, docs and projects.",
       "category": "office",
-      "downloads": 470854
+      "downloads": 472014
     },
     {
       "id": "sumatrapdf",
@@ -322,7 +322,7 @@
       "name": "Obsidian",
       "summary": "Obsidian is a powerful knowledge base that works on top of a local folder of plain text Markdown files.",
       "category": "office",
-      "downloads": 347352
+      "downloads": 347485
     },
     {
       "id": "onlyoffice",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7457610
+      "downloads": 7458327
     },
     {
       "id": "nodejs",
@@ -644,14 +644,14 @@
       "name": "Node.js LTS (Install)",
       "summary": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine",
       "category": "developer",
-      "downloads": 4959835
+      "downloads": 4961983
     },
     {
       "id": "vim",
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4945704
+      "downloads": 4946412
     },
     {
       "id": "jdk8",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2690372
+      "downloads": 2691417
     },
     {
       "id": "terraform",
@@ -735,7 +735,7 @@
       "name": "Docker Desktop",
       "summary": "The fastest way to containerize applications on your desktop",
       "category": "developer",
-      "downloads": 2241788
+      "downloads": 2242178
     },
     {
       "id": "golang",
@@ -749,7 +749,7 @@
       "name": "Gradle",
       "summary": "Accelerate developer productivity",
       "category": "developer",
-      "downloads": 1970383
+      "downloads": 1971823
     },
     {
       "id": "ruby",
@@ -798,7 +798,7 @@
       "name": "GitHub CLI",
       "summary": "Command line wrapper for git that makes you better at GitHub.",
       "category": "developer",
-      "downloads": 1119264
+      "downloads": 1119670
     },
     {
       "id": "dotnet-sdk",
@@ -882,7 +882,7 @@
       "name": "k6",
       "summary": "A modern load testing tool for developers and testers in the DevOps era",
       "category": "developer",
-      "downloads": 359471
+      "downloads": 359760
     },
     {
       "id": "k9s",
@@ -1022,7 +1022,7 @@
       "name": "NVidia Display Driver",
       "summary": "NVIDIA Display Driver",
       "category": "runtimes",
-      "downloads": 3747484
+      "downloads": 3747814
     },
     {
       "id": "openssl",
