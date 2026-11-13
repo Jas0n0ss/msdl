@@ -5,7 +5,6 @@ on:
     # Twice a day, just after Microsoft's usual publish windows. The second run
     # is a safety net: if the first one fails, the catalogue is still refreshed
     # within the same day.
-    - cron: '17 4 * * *'
     - cron: '17 16 * * *'
   workflow_dispatch:
     inputs:
