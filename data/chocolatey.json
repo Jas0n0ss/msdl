@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-14T20:46:06.102Z",
+  "updated": "2026-11-15T21:05:03.906Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -56,7 +56,7 @@
       "name": "Microsoft Edge",
       "summary": "Microsoft Edge browser, based on the Chromium open source browser.",
       "category": "browsers",
-      "downloads": 102714294
+      "downloads": 102715486
     },
     {
       "id": "brave",
@@ -385,7 +385,7 @@
       "name": "FileZilla",
       "summary": "FileZilla – The free FTP solution",
       "category": "utilities",
-      "downloads": 6428754
+      "downloads": 6428932
     },
     {
       "id": "advanced-ip-scanner",
@@ -448,7 +448,7 @@
       "name": "CrystalDiskInfo",
       "summary": "CrystalDiskInfo is a HDD/SSD utility software which shows the health status much more clearly than similar tools.",
       "category": "utilities",
-      "downloads": 2128108
+      "downloads": 2133411
     },
     {
       "id": "anydesk",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7460213
+      "downloads": 7460716
     },
     {
       "id": "nodejs",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4947392
+      "downloads": 4948228
     },
     {
       "id": "jdk8",
@@ -770,7 +770,7 @@
       "name": "Maven",
       "summary": "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object \n\tmodel (POM), Maven can manage a project's build, reporting and documentation from a central piece of information",
       "category": "developer",
-      "downloads": 1808804
+      "downloads": 1825429
     },
     {
       "id": "wsl2",
@@ -784,7 +784,7 @@
       "name": "DBeaver - Community Edition",
       "summary": "Free multi-platform database tool for developers, SQL programmers, database administrators and analysts.",
       "category": "developer",
-      "downloads": 1399112
+      "downloads": 1404342
     },
     {
       "id": "protoc",
@@ -987,7 +987,7 @@
       "name": "Tilt",
       "summary": "Kubernetes for Prod, Tilt for Dev",
       "category": "developer",
-      "downloads": 10105
+      "downloads": 10110
     },
     {
       "id": "vcredist2015",
