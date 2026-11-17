@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T00:17:01.341Z",
+  "updated": "2026-11-17T23:32:04.959Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -49,7 +49,7 @@
       "name": "Mozilla Firefox",
       "summary": "Bringing together all kinds of awesomeness to make browsing better for you",
       "category": "browsers",
-      "downloads": 111722252
+      "downloads": 111738902
     },
     {
       "id": "microsoft-edge",
@@ -63,7 +63,7 @@
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4929033
+      "downloads": 4935387
     },
     {
       "id": "chromium",
@@ -84,7 +84,7 @@
       "name": "LibreWolf",
       "summary": "A fork of Firefox, focused on privacy, security and freedom.",
       "category": "browsers",
-      "downloads": 467086
+      "downloads": 468739
     },
     {
       "id": "zoom",
@@ -203,7 +203,7 @@
       "name": "ImageMagick",
       "summary": "ImageMagick® is a software suite to create, edit, compose, or convert bitmap images",
       "category": "media",
-      "downloads": 801622
+      "downloads": 807172
     },
     {
       "id": "handbrake",
@@ -217,14 +217,14 @@
       "name": "foobar2000",
       "summary": "foobar2000 is an advanced freeware audio player.",
       "category": "media",
-      "downloads": 412729
+      "downloads": 415601
     },
     {
       "id": "shotcut",
       "name": "Shotcut",
       "summary": "Shotcut is a free, open source, cross-platform video editor.",
       "category": "media",
-      "downloads": 403093
+      "downloads": 404888
     },
     {
       "id": "krita",
@@ -301,7 +301,7 @@
       "name": "Evernote",
       "summary": "A cross-platform, freemium app designed for note taking, organizing, and archiving.",
       "category": "office",
-      "downloads": 907652
+      "downloads": 909368
     },
     {
       "id": "notion",
@@ -385,7 +385,7 @@
       "name": "FileZilla",
       "summary": "FileZilla – The free FTP solution",
       "category": "utilities",
-      "downloads": 6428932
+      "downloads": 6432279
     },
     {
       "id": "advanced-ip-scanner",
@@ -462,7 +462,7 @@
       "name": "1Password",
       "summary": "1Password - Have you ever forgotten a password?",
       "category": "utilities",
-      "downloads": 1222940
+      "downloads": 1226811
     },
     {
       "id": "nmap",
@@ -476,7 +476,7 @@
       "name": "Rufus",
       "summary": "Create bootable USB drives from Windows and Linux images",
       "category": "utilities",
-      "downloads": 840102
+      "downloads": 865597
     },
     {
       "id": "revo-uninstaller",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7460716
+      "downloads": 7465896
     },
     {
       "id": "nodejs",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2693502
+      "downloads": 2694496
     },
     {
       "id": "terraform",
