@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T21:05:03.906Z",
+  "updated": "2026-11-17T00:17:01.341Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -105,7 +105,7 @@
       "name": "Slack for Windows",
       "summary": "Slack for Windows",
       "category": "communication",
-      "downloads": 9880139
+      "downloads": 9890441
     },
     {
       "id": "skype",
@@ -308,7 +308,7 @@
       "name": "Notion",
       "summary": "Your connected workspace for wiki, docs and projects.",
       "category": "office",
-      "downloads": 472715
+      "downloads": 474046
     },
     {
       "id": "sumatrapdf",
@@ -343,7 +343,7 @@
       "name": "Teamviewer (Install)",
       "summary": "Empowering secure remote desktop access and support.",
       "category": "utilities",
-      "downloads": 50535158
+      "downloads": 50567521
     },
     {
       "id": "7zip",
@@ -532,7 +532,7 @@
       "name": "VeraCrypt",
       "summary": "VeraCrypt",
       "category": "utilities",
-      "downloads": 311082
+      "downloads": 323432
     },
     {
       "id": "ventoy",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4948228
+      "downloads": 4949211
     },
     {
       "id": "jdk8",
@@ -679,7 +679,7 @@
       "name": "Azure CLI",
       "summary": "The Azure command-line interface (Azure CLI) is a set of commands used to create and manage Azure resources.",
       "category": "developer",
-      "downloads": 3481816
+      "downloads": 3491511
     },
     {
       "id": "visualstudio2022buildtools",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2691843
+      "downloads": 2693502
     },
     {
       "id": "terraform",
@@ -784,7 +784,7 @@
       "name": "DBeaver - Community Edition",
       "summary": "Free multi-platform database tool for developers, SQL programmers, database administrators and analysts.",
       "category": "developer",
-      "downloads": 1404342
+      "downloads": 1404393
     },
     {
       "id": "protoc",
