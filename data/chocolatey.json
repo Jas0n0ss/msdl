@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T23:32:04.959Z",
+  "updated": "2026-11-18T22:57:56.909Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -63,7 +63,7 @@
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4935387
+      "downloads": 4937555
     },
     {
       "id": "chromium",
@@ -77,14 +77,14 @@
       "name": "Opera",
       "summary": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer.",
       "category": "browsers",
-      "downloads": 1846276
+      "downloads": 1848845
     },
     {
       "id": "librewolf",
       "name": "LibreWolf",
       "summary": "A fork of Firefox, focused on privacy, security and freedom.",
       "category": "browsers",
-      "downloads": 468739
+      "downloads": 468883
     },
     {
       "id": "zoom",
@@ -140,7 +140,7 @@
       "name": "Discord",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "communication",
-      "downloads": 884971
+      "downloads": 887925
     },
     {
       "id": "hexchat",
@@ -161,7 +161,7 @@
       "name": "Spotify",
       "summary": "Spotify is a new way to listen to music",
       "category": "media",
-      "downloads": 5465824
+      "downloads": 5470342
     },
     {
       "id": "gimp",
@@ -266,7 +266,7 @@
       "name": "Adobe Acrobat Reader DC",
       "summary": "View, print, sign, and annotate PDF files.",
       "category": "office",
-      "downloads": 694601137
+      "downloads": 694921729
     },
     {
       "id": "notepadplusplus",
@@ -378,7 +378,7 @@
       "name": "Wireshark",
       "summary": "Wireshark",
       "category": "utilities",
-      "downloads": 6613413
+      "downloads": 6647992
     },
     {
       "id": "filezilla",
@@ -441,7 +441,7 @@
       "name": "Bitwarden",
       "summary": "A secure and free password manager for all of your devices.",
       "category": "utilities",
-      "downloads": 2279577
+      "downloads": 2282428
     },
     {
       "id": "crystaldiskinfo",
@@ -588,14 +588,14 @@
       "name": "Visual Studio Code (Install)",
       "summary": "Visual Studio Code",
       "category": "developer",
-      "downloads": 10494660
+      "downloads": 10503842
     },
     {
       "id": "vscode",
       "name": "Visual Studio Code",
       "summary": "Visual Studio Code",
       "category": "developer",
-      "downloads": 10398958
+      "downloads": 10407416
     },
     {
       "id": "powershell-core",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4949211
+      "downloads": 4951177
     },
     {
       "id": "jdk8",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2694496
+      "downloads": 2695436
     },
     {
       "id": "terraform",
@@ -798,7 +798,7 @@
       "name": "GitHub CLI",
       "summary": "Command line wrapper for git that makes you better at GitHub.",
       "category": "developer",
-      "downloads": 1120018
+      "downloads": 1122746
     },
     {
       "id": "dotnet-sdk",
@@ -1001,7 +1001,7 @@
       "name": "Java SE Runtime Environment",
       "summary": "",
       "category": "runtimes",
-      "downloads": 41946225
+      "downloads": 41983408
     },
     {
       "id": "dotnetfx",
@@ -1078,7 +1078,7 @@
       "name": "Discord (Install)",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "gaming",
-      "downloads": 1158031
+      "downloads": 1163807
     },
     {
       "id": "steam",
@@ -1099,7 +1099,7 @@
       "name": "Ubisoft Connect",
       "summary": "Ubisoft Connect is a cross-platform service available in more than 50 games. It enables actions, rewards and social interactions.",
       "category": "gaming",
-      "downloads": 240045
+      "downloads": 242063
     },
     {
       "id": "goggalaxy",
