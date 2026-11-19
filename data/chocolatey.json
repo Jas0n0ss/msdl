@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18T22:57:56.909Z",
+  "updated": "2026-11-19T23:05:39.878Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -42,7 +42,7 @@
       "name": "Google Chrome",
       "summary": "",
       "category": "browsers",
-      "downloads": 394358436
+      "downloads": 394410689
     },
     {
       "id": "firefox",
@@ -56,14 +56,14 @@
       "name": "Microsoft Edge",
       "summary": "Microsoft Edge browser, based on the Chromium open source browser.",
       "category": "browsers",
-      "downloads": 102715486
+      "downloads": 102730033
     },
     {
       "id": "brave",
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4937555
+      "downloads": 4938812
     },
     {
       "id": "chromium",
@@ -105,7 +105,7 @@
       "name": "Slack for Windows",
       "summary": "Slack for Windows",
       "category": "communication",
-      "downloads": 9890441
+      "downloads": 9895048
     },
     {
       "id": "skype",
@@ -126,7 +126,7 @@
       "name": "Signal (Desktop)",
       "summary": "Fast, simple, secure. Privacy that fits in your pocket",
       "category": "communication",
-      "downloads": 3404767
+      "downloads": 3410932
     },
     {
       "id": "telegram",
@@ -217,7 +217,7 @@
       "name": "foobar2000",
       "summary": "foobar2000 is an advanced freeware audio player.",
       "category": "media",
-      "downloads": 415601
+      "downloads": 415788
     },
     {
       "id": "shotcut",
@@ -378,7 +378,7 @@
       "name": "Wireshark",
       "summary": "Wireshark",
       "category": "utilities",
-      "downloads": 6647992
+      "downloads": 6648407
     },
     {
       "id": "filezilla",
@@ -441,7 +441,7 @@
       "name": "Bitwarden",
       "summary": "A secure and free password manager for all of your devices.",
       "category": "utilities",
-      "downloads": 2282428
+      "downloads": 2283097
     },
     {
       "id": "crystaldiskinfo",
@@ -455,7 +455,7 @@
       "name": "AnyDesk",
       "summary": "Remote Desktop Software",
       "category": "utilities",
-      "downloads": 1870437
+      "downloads": 1882689
     },
     {
       "id": "1password",
@@ -511,7 +511,7 @@
       "name": "GPU-Z (Portable)",
       "summary": "GPU-Z - the Graphics Card Information Utility",
       "category": "utilities",
-      "downloads": 365147
+      "downloads": 370118
     },
     {
       "id": "rustdesk",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7465896
+      "downloads": 7469962
     },
     {
       "id": "nodejs",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4951177
+      "downloads": 4952641
     },
     {
       "id": "jdk8",
@@ -672,7 +672,7 @@
       "name": "CMake",
       "summary": "Cross-platform, open-source build system including CMake, CTest, CPack, and CMake-GUI",
       "category": "developer",
-      "downloads": 3673294
+      "downloads": 3679296
     },
     {
       "id": "azure-cli",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2695436
+      "downloads": 2696377
     },
     {
       "id": "terraform",
@@ -952,7 +952,7 @@
       "name": "Argo CD CLI",
       "summary": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.",
       "category": "developer",
-      "downloads": 68734
+      "downloads": 69580
     },
     {
       "id": "flux",
@@ -966,7 +966,7 @@
       "name": "Bun",
       "summary": "A fast all-in-one JavaScript runtime",
       "category": "developer",
-      "downloads": 45493
+      "downloads": 47662
     },
     {
       "id": "golangci-lint",
@@ -1099,7 +1099,7 @@
       "name": "Ubisoft Connect",
       "summary": "Ubisoft Connect is a cross-platform service available in more than 50 games. It enables actions, rewards and social interactions.",
       "category": "gaming",
-      "downloads": 242063
+      "downloads": 242124
     },
     {
       "id": "goggalaxy",
