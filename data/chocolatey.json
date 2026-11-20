@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T23:05:39.878Z",
+  "updated": "2026-11-20T22:42:38.728Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -56,14 +56,14 @@
       "name": "Microsoft Edge",
       "summary": "Microsoft Edge browser, based on the Chromium open source browser.",
       "category": "browsers",
-      "downloads": 102730033
+      "downloads": 102731861
     },
     {
       "id": "brave",
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4938812
+      "downloads": 4939781
     },
     {
       "id": "chromium",
@@ -126,7 +126,7 @@
       "name": "Signal (Desktop)",
       "summary": "Fast, simple, secure. Privacy that fits in your pocket",
       "category": "communication",
-      "downloads": 3410932
+      "downloads": 3411414
     },
     {
       "id": "telegram",
@@ -140,7 +140,7 @@
       "name": "Discord",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "communication",
-      "downloads": 887925
+      "downloads": 888178
     },
     {
       "id": "hexchat",
@@ -175,7 +175,7 @@
       "name": "FFmpeg",
       "summary": "FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video. It includes libavcodec – the leading audio/video codec library.",
       "category": "media",
-      "downloads": 3390570
+      "downloads": 3482835
     },
     {
       "id": "audacity",
@@ -266,7 +266,7 @@
       "name": "Adobe Acrobat Reader DC",
       "summary": "View, print, sign, and annotate PDF files.",
       "category": "office",
-      "downloads": 694921729
+      "downloads": 694943089
     },
     {
       "id": "notepadplusplus",
@@ -308,7 +308,7 @@
       "name": "Notion",
       "summary": "Your connected workspace for wiki, docs and projects.",
       "category": "office",
-      "downloads": 474046
+      "downloads": 475099
     },
     {
       "id": "sumatrapdf",
@@ -441,7 +441,7 @@
       "name": "Bitwarden",
       "summary": "A secure and free password manager for all of your devices.",
       "category": "utilities",
-      "downloads": 2283097
+      "downloads": 2283361
     },
     {
       "id": "crystaldiskinfo",
@@ -455,7 +455,7 @@
       "name": "AnyDesk",
       "summary": "Remote Desktop Software",
       "category": "utilities",
-      "downloads": 1882689
+      "downloads": 1882963
     },
     {
       "id": "1password",
@@ -511,7 +511,7 @@
       "name": "GPU-Z (Portable)",
       "summary": "GPU-Z - the Graphics Card Information Utility",
       "category": "utilities",
-      "downloads": 370118
+      "downloads": 370203
     },
     {
       "id": "rustdesk",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7469962
+      "downloads": 7471022
     },
     {
       "id": "nodejs",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4952641
+      "downloads": 4953546
     },
     {
       "id": "jdk8",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2696377
+      "downloads": 2696868
     },
     {
       "id": "terraform",
@@ -756,7 +756,7 @@
       "name": "Ruby",
       "summary": "Ruby - A dynamic, open source programming language focusing on simplicity and productivity.",
       "category": "developer",
-      "downloads": 1866293
+      "downloads": 1873327
     },
     {
       "id": "yarn",
@@ -952,21 +952,21 @@
       "name": "Argo CD CLI",
       "summary": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.",
       "category": "developer",
-      "downloads": 69580
+      "downloads": 69631
     },
     {
       "id": "flux",
       "name": "Flux CLI",
       "summary": "An optional command line interface to be used with Flux",
       "category": "developer",
-      "downloads": 60402
+      "downloads": 61608
     },
     {
       "id": "bun",
       "name": "Bun",
       "summary": "A fast all-in-one JavaScript runtime",
       "category": "developer",
-      "downloads": 47662
+      "downloads": 47699
     },
     {
       "id": "golangci-lint",
@@ -1078,7 +1078,7 @@
       "name": "Discord (Install)",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "gaming",
-      "downloads": 1163807
+      "downloads": 1164119
     },
     {
       "id": "steam",
@@ -1120,7 +1120,7 @@
       "name": "Playnite",
       "summary": "Open source video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net and Uplay. Including game emulation support, providing one unified interface for your games.",
       "category": "gaming",
-      "downloads": 91278
+      "downloads": 92341
     },
     {
       "id": "itch",
