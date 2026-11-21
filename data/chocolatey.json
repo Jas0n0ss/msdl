@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-20T22:42:38.728Z",
+  "updated": "2026-11-21T21:41:34.497Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -140,7 +140,7 @@
       "name": "Discord",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "communication",
-      "downloads": 888178
+      "downloads": 888353
     },
     {
       "id": "hexchat",
@@ -175,7 +175,7 @@
       "name": "FFmpeg",
       "summary": "FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video. It includes libavcodec – the leading audio/video codec library.",
       "category": "media",
-      "downloads": 3482835
+      "downloads": 3482925
     },
     {
       "id": "audacity",
@@ -196,7 +196,7 @@
       "name": "OBS Studio",
       "summary": "Free and open source software for video recording and live streaming.",
       "category": "media",
-      "downloads": 808998
+      "downloads": 814344
     },
     {
       "id": "imagemagick",
@@ -308,7 +308,7 @@
       "name": "Notion",
       "summary": "Your connected workspace for wiki, docs and projects.",
       "category": "office",
-      "downloads": 475099
+      "downloads": 475340
     },
     {
       "id": "sumatrapdf",
@@ -336,7 +336,7 @@
       "name": "Typora (Install)",
       "summary": "Typora is a minimal markdown editor, providing new ways for reading and writing markdown.",
       "category": "office",
-      "downloads": 120083
+      "downloads": 122022
     },
     {
       "id": "teamviewer",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7471022
+      "downloads": 7472966
     },
     {
       "id": "nodejs",
@@ -728,7 +728,7 @@
       "name": "PHP (Hypertext Preprocessor)",
       "summary": "PHP – widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.",
       "category": "developer",
-      "downloads": 2315183
+      "downloads": 2330663
     },
     {
       "id": "docker-desktop",
@@ -924,7 +924,7 @@
       "name": "MongoDB Compass (Install)",
       "summary": "",
       "category": "developer",
-      "downloads": 159749
+      "downloads": 160817
     },
     {
       "id": "kustomize",
@@ -959,7 +959,7 @@
       "name": "Flux CLI",
       "summary": "An optional command line interface to be used with Flux",
       "category": "developer",
-      "downloads": 61608
+      "downloads": 61637
     },
     {
       "id": "bun",
@@ -1078,7 +1078,7 @@
       "name": "Discord (Install)",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "gaming",
-      "downloads": 1164119
+      "downloads": 1164291
     },
     {
       "id": "steam",
@@ -1120,7 +1120,7 @@
       "name": "Playnite",
       "summary": "Open source video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net and Uplay. Including game emulation support, providing one unified interface for your games.",
       "category": "gaming",
-      "downloads": 92341
+      "downloads": 92383
     },
     {
       "id": "itch",
