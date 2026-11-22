@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21T21:41:34.497Z",
+  "updated": "2026-11-22T21:50:48.798Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -196,7 +196,7 @@
       "name": "OBS Studio",
       "summary": "Free and open source software for video recording and live streaming.",
       "category": "media",
-      "downloads": 814344
+      "downloads": 814680
     },
     {
       "id": "imagemagick",
@@ -336,7 +336,7 @@
       "name": "Typora (Install)",
       "summary": "Typora is a minimal markdown editor, providing new ways for reading and writing markdown.",
       "category": "office",
-      "downloads": 122022
+      "downloads": 122056
     },
     {
       "id": "teamviewer",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7472966
+      "downloads": 7474250
     },
     {
       "id": "nodejs",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4953546
+      "downloads": 4956608
     },
     {
       "id": "jdk8",
@@ -728,7 +728,7 @@
       "name": "PHP (Hypertext Preprocessor)",
       "summary": "PHP – widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.",
       "category": "developer",
-      "downloads": 2330663
+      "downloads": 2331012
     },
     {
       "id": "docker-desktop",
@@ -770,7 +770,7 @@
       "name": "Maven",
       "summary": "Apache Maven is a software project management and comprehension tool. Based on the concept of a project object \n\tmodel (POM), Maven can manage a project's build, reporting and documentation from a central piece of information",
       "category": "developer",
-      "downloads": 1825429
+      "downloads": 1830003
     },
     {
       "id": "wsl2",
@@ -924,7 +924,7 @@
       "name": "MongoDB Compass (Install)",
       "summary": "",
       "category": "developer",
-      "downloads": 160817
+      "downloads": 160880
     },
     {
       "id": "kustomize",
