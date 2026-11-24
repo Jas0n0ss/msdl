@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T21:50:48.798Z",
+  "updated": "2026-11-24T02:56:37.480Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -133,7 +133,7 @@
       "name": "Telegram",
       "summary": "Cloud-based synchronized messaging app with a focus on speed and security",
       "category": "communication",
-      "downloads": 950657
+      "downloads": 953330
     },
     {
       "id": "discord",
@@ -651,7 +651,7 @@
       "name": "Vim",
       "summary": "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor.",
       "category": "developer",
-      "downloads": 4956608
+      "downloads": 4957600
     },
     {
       "id": "jdk8",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2696868
+      "downloads": 2699213
     },
     {
       "id": "terraform",
