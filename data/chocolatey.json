@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T00:26:29.022Z",
+  "updated": "2026-11-27T00:38:13.141Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -56,14 +56,14 @@
       "name": "Microsoft Edge",
       "summary": "Microsoft Edge browser, based on the Chromium open source browser.",
       "category": "browsers",
-      "downloads": 102746515
+      "downloads": 102746757
     },
     {
       "id": "brave",
       "name": "Brave Browser",
       "summary": "A browser that lets you browse safer and faster by blocking ads and trackers.",
       "category": "browsers",
-      "downloads": 4948610
+      "downloads": 4951703
     },
     {
       "id": "chromium",
@@ -77,7 +77,7 @@
       "name": "Opera",
       "summary": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer.",
       "category": "browsers",
-      "downloads": 1848845
+      "downloads": 1851647
     },
     {
       "id": "librewolf",
@@ -133,7 +133,7 @@
       "name": "Telegram",
       "summary": "Cloud-based synchronized messaging app with a focus on speed and security",
       "category": "communication",
-      "downloads": 953330
+      "downloads": 953929
     },
     {
       "id": "discord",
@@ -252,7 +252,7 @@
       "name": "kdenlive (Install)",
       "summary": "A powerful non-linear video editor",
       "category": "media",
-      "downloads": 178487
+      "downloads": 180295
     },
     {
       "id": "kodi",
@@ -441,7 +441,7 @@
       "name": "Bitwarden",
       "summary": "A secure and free password manager for all of your devices.",
       "category": "utilities",
-      "downloads": 2283361
+      "downloads": 2287997
     },
     {
       "id": "crystaldiskinfo",
@@ -616,7 +616,7 @@
       "name": "AWS Command Line Interface v2 (Install)",
       "summary": "The AWS CLI is an open source tool built on top of the AWS SDK for Python (Boto) that provides commands for interacting with AWS services.",
       "category": "developer",
-      "downloads": 7480261
+      "downloads": 7482221
     },
     {
       "id": "nodejs",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2700185
+      "downloads": 2701773
     },
     {
       "id": "terraform",
@@ -735,7 +735,7 @@
       "name": "Docker Desktop",
       "summary": "The fastest way to containerize applications on your desktop",
       "category": "developer",
-      "downloads": 2242428
+      "downloads": 2249478
     },
     {
       "id": "golang",
@@ -791,7 +791,7 @@
       "name": "GitHub CLI",
       "summary": "Command line wrapper for git that makes you better at GitHub.",
       "category": "developer",
-      "downloads": 1127526
+      "downloads": 1127620
     },
     {
       "id": "protoc",
@@ -819,7 +819,7 @@
       "name": "JetBrains IntelliJ IDEA",
       "summary": "Capable and Ergonomic Java IDE",
       "category": "developer",
-      "downloads": 845750
+      "downloads": 848351
     },
     {
       "id": "nvm",
