@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27T00:38:13.141Z",
+  "updated": "2026-11-28T00:04:59.798Z",
   "source": "community.chocolatey.org",
   "installCommand": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
   "categories": [
@@ -77,7 +77,7 @@
       "name": "Opera",
       "summary": "The Opera web browser makes the Web fast and fun, giving you a better web browser experience on any computer.",
       "category": "browsers",
-      "downloads": 1851647
+      "downloads": 1852390
     },
     {
       "id": "librewolf",
@@ -133,14 +133,14 @@
       "name": "Telegram",
       "summary": "Cloud-based synchronized messaging app with a focus on speed and security",
       "category": "communication",
-      "downloads": 953929
+      "downloads": 953998
     },
     {
       "id": "discord",
       "name": "Discord",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "communication",
-      "downloads": 888353
+      "downloads": 890159
     },
     {
       "id": "hexchat",
@@ -161,7 +161,7 @@
       "name": "Spotify",
       "summary": "Spotify is a new way to listen to music",
       "category": "media",
-      "downloads": 5470342
+      "downloads": 5477787
     },
     {
       "id": "gimp",
@@ -336,7 +336,7 @@
       "name": "Typora (Install)",
       "summary": "Typora is a minimal markdown editor, providing new ways for reading and writing markdown.",
       "category": "office",
-      "downloads": 122056
+      "downloads": 122309
     },
     {
       "id": "teamviewer",
@@ -497,7 +497,7 @@
       "name": "ShareX (Install)",
       "summary": "Screen capture, file sharing and productivity tool.",
       "category": "utilities",
-      "downloads": 547573
+      "downloads": 552736
     },
     {
       "id": "hwinfo",
@@ -700,7 +700,7 @@
       "name": "Postman for Windows",
       "summary": "Postman for Windows",
       "category": "developer",
-      "downloads": 2701773
+      "downloads": 2702694
     },
     {
       "id": "terraform",
@@ -1078,7 +1078,7 @@
       "name": "Discord (Install)",
       "summary": "Discord is an all-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.",
       "category": "gaming",
-      "downloads": 1164291
+      "downloads": 1166718
     },
     {
       "id": "steam",
